@@ -81,24 +81,34 @@ int main() {
     CursoVetor cursosV;
     VagaVetor vagasV;
 
-    candidatosV.tamanho = 0;
-
     while (true) {
         int opcao = pegarOpcaoDoMenu(dadosCarregados);
 
         if (opcao == 0) {
             carregarCursos(&cursosV);
+            carregarVagas(&vagasV);
+            carregarCandidatos(&candidatosV);
             dadosCarregados = true;
-        } else if (opcao == 1) {
+        }
+        else if (opcao == 1) {
             gerarArquivosDeSaida();
-        } else if (opcao == 2) {
+        }
+        else if (opcao == 2) {
             pesquisarCandidato(&candidatosV);
-        } else if (opcao == 3) {
+        }
+        else if (opcao == 3) {
             gerarArquivoDosCandidatosReprovados();
-        } else if (opcao == 4) {
+        }
+        else if (opcao == 4) {
             alterarNotaDaRedacao();
-        } else if (opcao == 5)
+        }
+        else if (opcao == 5) {
+            free(candidatosV.candidatos);
+            free(acertosV.acertos);
+            free(cursosV.cursos);
+            free(vagasV.vagas);
             return 0;
+        }
     }
 }
 
@@ -119,7 +129,7 @@ int pegarOpcaoDoMenu(bool dadosCarregados) {
         printf("5 - Encerrar programa\n\n");
         printf("Opcao> ");
 
-        // L� a op��o desejada
+        // Lê a opção desejada
         scanf("%d", &opcao);
 
         if (opcao < 0 || opcao > 5 || (opcao == 0 && dadosCarregados))
@@ -149,20 +159,12 @@ void carregarCursos(CursoVetor* cursosV) {
     FILE* cursosArquivo = fopen("dados/cursos_e_pesos.txt", "r");
     if (!arquivoFoiAberto(cursosArquivo)) return;
 
-    int quantidadeDeCursos;
-    int cursosArquivoIn = fscanf(cursosArquivo, "%d", &quantidadeDeCursos);
+    int cursosArquivoIn = fscanf(cursosArquivo, "%d", &cursosV->tamanho);
+    cursosV->cursos = (Curso*) calloc(cursosV->tamanho, sizeof(Curso));
 
-    while(cursosArquivoIn != EOF) {
-        if(cursosV->tamanho == 0) {
-            cursosV->cursos = (Curso*) calloc(1, sizeof(Curso));
-            cursosV->tamanho++;
-        } else {
-            cursosV->cursos = (Curso*) realloc(cursosV->cursos, cursosV->tamanho + 1);
-            cursosV->tamanho++;
-        }
-
+    for (int index = 0; (index < cursosV->tamanho && feof(cursosArquivo) == 0); index++) {
         Curso novoCurso;
-        cursosArquivoIn = fscanf(cursosArquivo, "%d %[*]s %d %d %d %d %d",
+        fscanf(cursosArquivo, "%d %[^0-9] %d %d %d %d %d",
                                  &novoCurso.codigo,
                                  novoCurso.nome,
                                  &novoCurso.pesoRed,
@@ -172,10 +174,10 @@ void carregarCursos(CursoVetor* cursosV) {
                                  &novoCurso.pesoNat
                                 );
 
-        cursosV->cursos[cursosV->tamanho-1] = novoCurso;
+        cursosV->cursos[index] = novoCurso;
 
 
-        printf("%d %s - %s %d %d %d %d %d",
+        printf("%d %s %d %d %d %d %d\n",
                novoCurso.codigo,
                novoCurso.nome,
                novoCurso.pesoRed,
@@ -186,21 +188,86 @@ void carregarCursos(CursoVetor* cursosV) {
               );
 
     }
+
+    fclose(cursosArquivo);
 }
 
-void carregarVagas(Vaga* vagas) {
+void carregarVagas(VagaVetor* vagasV) {
     FILE* vagasArquivo = fopen("dados/cursos_e_vagas.txt", "r");
+    if (!arquivoFoiAberto(vagasArquivo));
 
+    fscanf(vagasArquivo, "%d", &vagasV->tamanho);
+    vagasV->vagas = (Vaga*) calloc(vagasV->tamanho, sizeof(Vaga));
+
+    for(int index = 0; (index < vagasV->tamanho && feof(vagasArquivo) == 0); index++) {
+        Vaga novaVaga;
+        fscanf(vagasArquivo, "%d %d %d %d %d %d %d %d %d %d %d %d",
+                           &novaVaga.codigoCurso,
+                           &novaVaga.AC,
+                           &novaVaga.L1,
+                           &novaVaga.L3,
+                           &novaVaga.L4,
+                           &novaVaga.L5,
+                           &novaVaga.L7,
+                           &novaVaga.L8,
+                           &novaVaga.L9,
+                           &novaVaga.L11,
+                           &novaVaga.L13,
+                           &novaVaga.L15
+                          );
+
+        vagasV->vagas[index] = novaVaga;
+    }
     fclose(vagasArquivo);
 }
 
-void carregarCandidatos(Candidato* candidatos) {
+void carregarCandidatos(CandidatoVetor* candidatosV) {
     FILE* candidatosArquivo = fopen("dados/dados.txt", "r");
+    if (!arquivoFoiAberto(candidatosArquivo)) return;
+
+    int codigoCurso, quantidadeCandidatos = 0;
+
+    while(feof(candidatosArquivo) == 0) {
+        fscanf(candidatosArquivo, "%d %d", &codigoCurso, &quantidadeCandidatos);
+        int primeiraPosicaoDisponivel = candidatosV->tamanho;
+        printf("%d %d\n", codigoCurso, quantidadeCandidatos);
+
+        if(candidatosV->tamanho == 0) {
+            candidatosV->candidatos = (Candidato*) calloc(quantidadeCandidatos, sizeof(Candidato));
+            candidatosV->tamanho = quantidadeCandidatos;
+        }
+        else {
+            candidatosV->tamanho += quantidadeCandidatos;
+            candidatosV->candidatos = (Candidato*) realloc(candidatosV->candidatos, candidatosV->tamanho );
+        }
+
+        for (int index = 0; (index < quantidadeCandidatos && feof(candidatosArquivo) == 0); index++) {
+            Candidato novoCandidato;
+            fscanf(candidatosArquivo, "%d %[^0-9] %d/%d/%d %s",
+                   &novoCandidato.codigoCurso,
+                   &novoCandidato.nome,
+                   &novoCandidato.dataNascimento.dia,
+                   &novoCandidato.dataNascimento.mes,
+                   &novoCandidato.dataNascimento.ano,
+                   &novoCandidato.cota
+                   );
+
+            candidatosV->candidatos[primeiraPosicaoDisponivel + index] = novoCandidato;
+            printf("%d %s %d/%d/%d %s\n",
+                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].codigoCurso,
+                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].nome,
+                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].dataNascimento.dia,
+                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].dataNascimento.mes,
+                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].dataNascimento.ano,
+                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].cota
+                   );
+        }
+    }
 
     fclose(candidatosArquivo);
 }
 
-void carregarAcertos(Acertos* acertos) {
+void carregarAcertos(AcertosVetor* acertosV) {
     FILE* acertosArquivo = fopen("dados/acertos.txt", "r");
 
     fclose(acertosArquivo);
