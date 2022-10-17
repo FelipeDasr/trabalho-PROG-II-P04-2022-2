@@ -40,6 +40,16 @@ struct Acertos {
     float RED;
 };
 
+struct ResultadosCandidato {
+    int codigoCandidato;
+    float linguagens;
+    float matematica;
+    float ciencias;
+    float humanas;
+    float redacao;
+    float notaFinal;
+};
+
 struct CursoVetor {
     int tamanho = 0;
     Curso* cursos;
