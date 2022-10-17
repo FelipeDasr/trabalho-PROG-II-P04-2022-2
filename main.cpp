@@ -108,7 +108,7 @@ void calcularResultadosDosCandidatos(
     Competencias competencias
 );
 
-void calcularNotaFinal(ResultadosCandidato* resultados, Curso* curso);
+void calcularNotaFinal(ResultadosCandidato* resultados, Curso curso);
 
 void carregarCursos(CursoVetor* cursosV);
 void carregarVagas(VagaVetor* vagasV);
@@ -245,18 +245,18 @@ void calcularEscorePadronizado(
     *campoResultado = 500 + 100 * (2 * acertos - media) / desvioPadrao;
 }
 
-void calcularNotaFinal(ResultadosCandidato* resultados, Curso* curso) {
-    int dividendo = (resultados->redacao * curso->pesoRed) +
-        (resultados->linguagens * curso->pesoLin) +
-        (resultados->matematica * curso->pesoMat) +
-        (resultados->ciencias * curso->pesoNat) +
-        (resultados->humanas * curso->pesoHum);
+void calcularNotaFinal(ResultadosCandidato* resultados, Curso curso) {
+    int dividendo = (resultados->redacao * curso.pesoRed) +
+        (resultados->linguagens * curso.pesoLin) +
+        (resultados->matematica * curso.pesoMat) +
+        (resultados->ciencias * curso.pesoNat) +
+        (resultados->humanas * curso.pesoHum);
     
-    int divisor = curso->pesoRed + 
-        curso->pesoLin +
-        curso->pesoMat +
-        curso->pesoNat +
-        curso->pesoHum;
+    int divisor = curso.pesoRed + 
+        curso.pesoLin +
+        curso.pesoMat +
+        curso.pesoNat +
+        curso.pesoHum;
 
     resultados->notaFinal = dividendo / divisor;
 }
