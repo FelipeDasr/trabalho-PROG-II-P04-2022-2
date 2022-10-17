@@ -61,8 +61,8 @@ struct AcertosVetor {
 
 struct Competencias {
     struct DesvioEMedia {
-        float desvioPadrao;
-        float media; 
+        float desvioPadrao = 0;
+        float media = 0; 
     };
 
     DesvioEMedia linguagens;
