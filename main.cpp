@@ -204,9 +204,9 @@ void alterarNotaDaRedacao() {
 }
 
 Candidato* obterCandidatoPelaInscricao(int inscricao, CandidatoVetor* candidatosV) {
-    for(int index = 0; index < candidatosV->tamanho; index++, candidatosV->candidatos++) {
-        if(candidatosV->candidatos->inscricao == inscricao)
-            return candidatosV->candidatos;
+    for(int index = 0; index < candidatosV->tamanho; index++) {
+        if(candidatosV->candidatos[index].inscricao == inscricao)
+            return &candidatosV->candidatos[index];
     }
     return NULL;
 }
