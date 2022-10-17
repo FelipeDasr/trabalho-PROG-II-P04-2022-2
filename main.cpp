@@ -261,6 +261,8 @@ void carregarCandidatos(CandidatoVetor* candidatosV) {
         fscanf(candidatosArquivo, "%d %d", &codigoCurso, &quantidadeCandidatos);
         int primeiraPosicaoDisponivel = candidatosV->tamanho;
 
+        // Caso o tamanho do vetor seja 0, então a memória deve ser alocada pela primeira vez.
+        // Caso contrário, deve ser apenas realocada
         if(candidatosV->tamanho == 0) {
             candidatosV->candidatos = (Candidato*) calloc(quantidadeCandidatos, sizeof(Candidato));
             candidatosV->tamanho = quantidadeCandidatos;
@@ -307,8 +309,8 @@ void carregarAcertos(AcertosVetor* acertosV) {
                &novosAcertos.RED
         );
 
-        // Adicionando o acerto no atributo `media` de cada competencia
-        // para que o calculo seja realizado posteriormente
+        // Aproveitando o laço de leitura e adicionando o acerto no atributo `media` de 
+        // cada competencia, para que o calculo seja realizado posteriormente.
         competencias.matematica.media += novosAcertos.V_MAT;
         competencias.linguagens.media += novosAcertos.V_LIN;
         competencias.ciencias.media += novosAcertos.V_NAT;
@@ -327,6 +329,7 @@ void carregarAcertos(AcertosVetor* acertosV) {
     competencias.ciencias.media /= tamanhoParaOCalculo;
     competencias.humanas.media /= tamanhoParaOCalculo;
 
+    // Calcula o desvio padrão de todas as competências
     calcularDesvioPadrao(acertosV, &competencias);
 
     fclose(acertosArquivo);
