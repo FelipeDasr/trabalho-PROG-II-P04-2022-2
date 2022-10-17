@@ -108,6 +108,8 @@ void calcularResultadosDosCandidatos(
     Competencias competencias
 );
 
+void calcularNotaFinal(ResultadosCandidato* resultados, Curso* curso);
+
 void carregarCursos(CursoVetor* cursosV);
 void carregarVagas(VagaVetor* vagasV);
 void carregarCandidatos(CandidatoVetor* candidatosV);
