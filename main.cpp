@@ -221,6 +221,22 @@ void calcularEscorePadronizado(
     *campoResultado = 500 + 100 * (2 * acertos - media) / desvioPadrao;
 }
 
+void calcularNotaFinal(ResultadosCandidato* resultados, Curso* curso) {
+    int dividendo = (resultados->redacao * curso->pesoRed) +
+        (resultados->linguagens * curso->pesoLin) +
+        (resultados->matematica * curso->pesoMat) +
+        (resultados->ciencias * curso->pesoNat) +
+        (resultados->humanas * curso->pesoHum);
+    
+    int divisor = curso->pesoRed + 
+        curso->pesoLin +
+        curso->pesoMat +
+        curso->pesoNat +
+        curso->pesoHum;
+
+    resultados->notaFinal = dividendo / divisor;
+}
+
 void calcularResultadosDosCandidatos(
     ResultadosCandidato* resultados, 
     AcertosVetor* acertosV, 
