@@ -99,8 +99,7 @@ Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV);
 
 void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias);
 
-void calcularEscorePadronizado(
-    float* campoResultado, int acertos, float media, float desvioPadrao);
+float calcularEscorePadronizado(int acertos, float media, float desvioPadrao);
 
 void calcularResultadosDosCandidatos(
     ResultadosCandidato* resultados, 
@@ -246,13 +245,12 @@ void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias) {
     competencias->humanas.desvioPadrao = sqrt(dpBrutoHumanas / tamanho) * 2;
 }
 
-void calcularEscorePadronizado(
-    float* campoResultado, 
+float calcularEscorePadronizado(
     int acertos, 
     float media, 
     float desvioPadrao
 ) {
-    *campoResultado = 500 + 100 * (2 * acertos - media) / desvioPadrao;
+    return 500 + 100 * (2 * acertos - media) / desvioPadrao;
 }
 
 void calcularNotaFinal(ResultadosCandidato* resultados, Curso curso) {
@@ -303,29 +301,25 @@ void calcularResultadosDosCandidatos(
         resultadosCandidato->redacao = acertos->RED;
 
         // Calcula o escore padronizado do candidato em cada competência
-        calcularEscorePadronizado(
-            &resultadosCandidato->linguagens,
+        resultadosCandidato->linguagens = calcularEscorePadronizado(
             acertos->V_LIN, 
             competencias.linguagens.media, 
             competencias.linguagens.desvioPadrao
         );
 
-        calcularEscorePadronizado(
-            &resultadosCandidato->matematica,
+        resultadosCandidato->matematica = calcularEscorePadronizado(
             acertos->V_MAT, 
             competencias.matematica.media, 
             competencias.matematica.desvioPadrao
         );
 
-        calcularEscorePadronizado(
-            &resultadosCandidato->ciencias,
+        resultadosCandidato->ciencias = calcularEscorePadronizado(
             acertos->V_NAT, 
             competencias.ciencias.media, 
             competencias.ciencias.desvioPadrao
         );
         
-        calcularEscorePadronizado(
-            &resultadosCandidato->humanas,
+        resultadosCandidato->humanas = calcularEscorePadronizado(
             acertos->V_HUM, 
             competencias.humanas.media, 
             competencias.humanas.desvioPadrao
