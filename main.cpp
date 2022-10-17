@@ -212,7 +212,7 @@ void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias) {
 }
 
 float calcularEscorePadronizado(int acertos, float media, float desvioPadrao) {
-
+    return 500 + 100 * (2 * acertos - media) / desvioPadrao;
 }
 
 void calcularResultadosDosCandidatos(
