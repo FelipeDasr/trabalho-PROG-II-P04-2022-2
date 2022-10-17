@@ -94,6 +94,7 @@ void pesquisarCandidato(CandidatoVetor* candidatosV);
 void gerarArquivoDosCandidatosReprovados();
 void alterarNotaDaRedacao();
 
+Candidato* obterCandidatoPelaInscricao(int inscricao, CandidatoVetor* candidatosV);
 Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV);
 
 void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias);
@@ -199,6 +200,14 @@ void gerarArquivoDosCandidatosReprovados() {
 
 void alterarNotaDaRedacao() {
 
+}
+
+Candidato* obterCandidatoPelaInscricao(int inscricao, CandidatoVetor* candidatosV) {
+    for(int index = 0; index < candidatosV->tamanho; index++, candidatosV->candidatos++) {
+        if(candidatosV->candidatos->inscricao == inscricao)
+            return candidatosV->candidatos;
+    }
+    return NULL;
 }
 
 Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV) {
@@ -405,6 +414,14 @@ void carregarAcertos(AcertosVetor* acertosV, CursoVetor* cursosV) {
 
     // Calcula o desvio padrão de todas as competências
     calcularDesvioPadrao(acertosV, &competencias);
+
+    //
+    calcularResultadosDosCandidatos(
+        resultados, 
+        acertosV,
+        cursosV,
+        competencias
+    );
 
     fclose(acertosArquivo);
 }
