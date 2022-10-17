@@ -21,7 +21,7 @@ struct Vaga {
 struct Candidato {
     int codigoCurso;
     int inscricao;
-    char nome[31];
+    char nome[81];
     struct {
         int dia;
         int mes;
@@ -88,6 +88,7 @@ int main() {
             carregarCursos(&cursosV);
             carregarVagas(&vagasV);
             carregarCandidatos(&candidatosV);
+            carregarAcertos(&acertosV);
             dadosCarregados = true;
         }
         else if (opcao == 1) {
@@ -112,14 +113,14 @@ int main() {
     }
 }
 
-/*** IMPLEMENTA��O DAS INTERFACES ***/
+/*** IMPLEMENTAÇÃO DAS INTERFACES ***/
 
 int pegarOpcaoDoMenu(bool dadosCarregados) {
     while(true) {
         int opcao = -1;
         printf("========================== MENU ==========================\n\n");
 
-        // Exibe a op��o `0` apenas se os dados n�o tiverem sido carregados
+        // Exibe a opção `0` apenas se os dados n�o tiverem sido carregados
         if (!dadosCarregados) printf("0 - Carregar os arquivos de entrada\n");
 
         printf("1 - Gerar arquivos de saida\n");
@@ -165,30 +166,17 @@ void carregarCursos(CursoVetor* cursosV) {
     for (int index = 0; (index < cursosV->tamanho && feof(cursosArquivo) == 0); index++) {
         Curso novoCurso;
         fscanf(cursosArquivo, "%d %[^0-9] %d %d %d %d %d",
-                                 &novoCurso.codigo,
-                                 novoCurso.nome,
-                                 &novoCurso.pesoRed,
-                                 &novoCurso.pesoMat,
-                                 &novoCurso.pesoLin,
-                                 &novoCurso.pesoHum,
-                                 &novoCurso.pesoNat
-                                );
-
-        cursosV->cursos[index] = novoCurso;
-
-
-        printf("%d %s %d %d %d %d %d\n",
-               novoCurso.codigo,
+               &novoCurso.codigo,
                novoCurso.nome,
-               novoCurso.pesoRed,
-               novoCurso.pesoMat,
-               novoCurso.pesoLin,
-               novoCurso.pesoHum,
-               novoCurso.pesoNat
+               &novoCurso.pesoRed,
+               &novoCurso.pesoMat,
+               &novoCurso.pesoLin,
+               &novoCurso.pesoHum,
+               &novoCurso.pesoNat
               );
 
+        cursosV->cursos[index] = novoCurso;
     }
-
     fclose(cursosArquivo);
 }
 
@@ -202,19 +190,19 @@ void carregarVagas(VagaVetor* vagasV) {
     for(int index = 0; (index < vagasV->tamanho && feof(vagasArquivo) == 0); index++) {
         Vaga novaVaga;
         fscanf(vagasArquivo, "%d %d %d %d %d %d %d %d %d %d %d %d",
-                           &novaVaga.codigoCurso,
-                           &novaVaga.AC,
-                           &novaVaga.L1,
-                           &novaVaga.L3,
-                           &novaVaga.L4,
-                           &novaVaga.L5,
-                           &novaVaga.L7,
-                           &novaVaga.L8,
-                           &novaVaga.L9,
-                           &novaVaga.L11,
-                           &novaVaga.L13,
-                           &novaVaga.L15
-                          );
+               &novaVaga.codigoCurso,
+               &novaVaga.AC,
+               &novaVaga.L1,
+               &novaVaga.L3,
+               &novaVaga.L4,
+               &novaVaga.L5,
+               &novaVaga.L7,
+               &novaVaga.L8,
+               &novaVaga.L9,
+               &novaVaga.L11,
+               &novaVaga.L13,
+               &novaVaga.L15
+              );
 
         vagasV->vagas[index] = novaVaga;
     }
@@ -230,55 +218,59 @@ void carregarCandidatos(CandidatoVetor* candidatosV) {
     while(feof(candidatosArquivo) == 0) {
         fscanf(candidatosArquivo, "%d %d", &codigoCurso, &quantidadeCandidatos);
         int primeiraPosicaoDisponivel = candidatosV->tamanho;
-        printf("%d %d\n", codigoCurso, quantidadeCandidatos);
 
         if(candidatosV->tamanho == 0) {
             candidatosV->candidatos = (Candidato*) calloc(quantidadeCandidatos, sizeof(Candidato));
             candidatosV->tamanho = quantidadeCandidatos;
-        }
-        else {
+        } else {
             candidatosV->tamanho += quantidadeCandidatos;
-            candidatosV->candidatos = (Candidato*) realloc(candidatosV->candidatos, candidatosV->tamanho );
+            candidatosV->candidatos = (Candidato*) realloc(candidatosV->candidatos, candidatosV->tamanho * sizeof(Candidato) );
         }
 
         for (int index = 0; (index < quantidadeCandidatos && feof(candidatosArquivo) == 0); index++) {
             Candidato novoCandidato;
+            novoCandidato.codigoCurso = codigoCurso;
+
             fscanf(candidatosArquivo, "%d %[^0-9] %d/%d/%d %s",
-                   &novoCandidato.codigoCurso,
+                   &novoCandidato.inscricao,
                    &novoCandidato.nome,
                    &novoCandidato.dataNascimento.dia,
                    &novoCandidato.dataNascimento.mes,
                    &novoCandidato.dataNascimento.ano,
                    &novoCandidato.cota
-                   );
+                  );
 
             candidatosV->candidatos[primeiraPosicaoDisponivel + index] = novoCandidato;
-            printf("%d %s %d/%d/%d %s\n",
-                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].codigoCurso,
-                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].nome,
-                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].dataNascimento.dia,
-                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].dataNascimento.mes,
-                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].dataNascimento.ano,
-                   candidatosV->candidatos[primeiraPosicaoDisponivel + index].cota
-                   );
         }
     }
-
     fclose(candidatosArquivo);
 }
 
 void carregarAcertos(AcertosVetor* acertosV) {
     FILE* acertosArquivo = fopen("dados/acertos.txt", "r");
+    fscanf(acertosArquivo, "%d", &acertosV->tamanho);
 
+    acertosV->acertos = (Acertos*) calloc(acertosV->tamanho, sizeof(Acertos));
+    Acertos novosAcertos;
+
+    for(int index = 0; (index < acertosV->tamanho && feof(acertosArquivo) == 0); index++) {
+        fscanf(acertosArquivo, "%d %d %d %d %d %f",
+               &novosAcertos.codigoCandidato,
+               &novosAcertos.V_LIN,
+               &novosAcertos.V_MAT,
+               &novosAcertos.V_NAT,
+               &novosAcertos.V_HUM,
+               &novosAcertos.RED
+        );
+        acertosV->acertos[index] = novosAcertos;
+    }
     fclose(acertosArquivo);
 }
 
 bool arquivoFoiAberto(FILE* arquivo) {
     if (arquivo == NULL) {
-        printf("\n\nErro ao abrir arquivo!\n\n", arquivo);
+        printf("\n\nErro ao abrir arquivo!\n\n");
         return false;
     }
     return true;
 }
-
-/*** TIPAGEM DOS REGISTROS ***/
