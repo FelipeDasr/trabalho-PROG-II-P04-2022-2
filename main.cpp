@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 struct Curso {
     int codigo;
@@ -171,7 +172,30 @@ void alterarNotaDaRedacao() {
 }
 
 void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias) {
-    
+    // Variáveis que acumularão os valores dos acertos de cada competência
+    float dpBrutoMatematica = 0;
+    float dpBrutoLinguagens = 0;
+    float dpBrutoCiencias = 0;
+    float dpBrutoHumanas = 0;
+
+    for(int index = 0; index < acertosV->tamanho; index++) {
+        Acertos acertos = acertosV->acertos[index];
+
+        // as médias devem ser divididas, já que anteriormente foram multiplicadas por 2
+        dpBrutoMatematica += pow(acertos.V_MAT - (competencias->matematica.media / 2), 2);
+        dpBrutoLinguagens += pow(acertos.V_LIN - (competencias->linguagens.media / 2), 2);
+        dpBrutoCiencias += pow(acertos.V_NAT - (competencias->ciencias.media / 2), 2);
+        dpBrutoHumanas += pow(acertos.V_HUM - (competencias->humanas.media / 2), 2);
+    }
+
+    int tamanho = acertosV->tamanho - 1;
+
+    // Todos os resultados devem ser multiplicados por 2
+    // para que seja possível aplicar a fórmula do EP
+    competencias->matematica.desvioPadrao = sqrt(dpBrutoMatematica / tamanho) * 2;
+    competencias->linguagens.desvioPadrao = sqrt(dpBrutoLinguagens / tamanho) * 2;
+    competencias->ciencias.desvioPadrao = sqrt(dpBrutoCiencias / tamanho) * 2;
+    competencias->humanas.desvioPadrao = sqrt(dpBrutoHumanas / tamanho) * 2;
 }
 
 void carregarCursos(CursoVetor* cursosV) {
@@ -302,6 +326,8 @@ void carregarAcertos(AcertosVetor* acertosV) {
     competencias.linguagens.media /= tamanhoParaOCalculo;
     competencias.ciencias.media /= tamanhoParaOCalculo;
     competencias.humanas.media /= tamanhoParaOCalculo;
+
+    calcularDesvioPadrao(acertosV, &competencias);
 
     fclose(acertosArquivo);
 }
