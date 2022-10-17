@@ -70,6 +70,11 @@ struct AcertosVetor {
     Acertos* acertos;
 };
 
+struct ResultadosCandidatoVetor {
+    int tamanho = 0;
+    ResultadosCandidato* resultados;
+};
+
 struct Competencias {
     struct DesvioEMedia {
         float desvioPadrao = 0;
@@ -107,6 +112,7 @@ bool arquivoFoiAberto(FILE* arquivo);
 int main() {
     bool dadosCarregados = false;
 
+    ResultadosCandidatoVetor resultadosV;
     CandidatoVetor candidatosV;
     AcertosVetor acertosV;
     CursoVetor cursosV;
