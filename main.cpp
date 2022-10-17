@@ -265,6 +265,8 @@ void carregarAcertos(AcertosVetor* acertosV) {
     acertosV->acertos = (Acertos*) calloc(acertosV->tamanho, sizeof(Acertos));
     Acertos novosAcertos;
 
+    Competencias competencias;
+
     for(int index = 0; (index < acertosV->tamanho && feof(acertosArquivo) == 0); index++) {
         fscanf(acertosArquivo, "%d %d %d %d %d %f",
                &novosAcertos.codigoCandidato,
@@ -274,8 +276,27 @@ void carregarAcertos(AcertosVetor* acertosV) {
                &novosAcertos.V_HUM,
                &novosAcertos.RED
         );
+
+        // Adicionando o acerto no atributo `media` de cada competencia
+        // para que o calculo seja realizado posteriormente
+        competencias.matematica.media += novosAcertos.V_MAT;
+        competencias.linguagens.media += novosAcertos.V_LIN;
+        competencias.ciencias.media += novosAcertos.V_NAT;
+        competencias.humanas.media += novosAcertos.V_HUM;
+
         acertosV->acertos[index] = novosAcertos;
     }
+
+    // Já que será necessário multiplicar por 2 a média e o desvio padrão
+    // basta dividir a quantidade de condidatos por 2
+    float tamanhoParaOCalculo = acertosV->tamanho / 2;
+
+    // Realizando o cálculo final das médias
+    competencias.matematica.media /= tamanhoParaOCalculo;
+    competencias.linguagens.media /= tamanhoParaOCalculo;
+    competencias.ciencias.media /= tamanhoParaOCalculo;
+    competencias.humanas.media /= tamanhoParaOCalculo;
+
     fclose(acertosArquivo);
 }
 
