@@ -278,7 +278,61 @@ void calcularResultadosDosCandidatos(
     CursoVetor* cursosV,
     Competencias competencias
 ) {
+    // Alocando o vetor de resultados dos candidatos
+    resultados = (ResultadosCandidato*) calloc(acertosV->tamanho, sizeof(ResultadosCandidato));
+    Curso* curso = cursosV->cursos;
+    int trocou = 0;
 
+    for (int index = 0; index < acertosV->tamanho; index++) {
+        ResultadosCandidato* resultadosCandidato = &resultados[index];
+        Acertos* acertos = &acertosV->acertos[index];
+
+        Candidato* candidato = obterCandidatoPelaInscricao(
+            acertos->codigoCandidato, 
+            candidatosV
+        );
+
+        // Para um ganho de performance, verificamos se o curso do candidato anterior
+        // é o mesmo do candidato atual, caso for o mesmo curso, não precisaremos
+        // buscar o curso novamente.
+        if (candidato->codigoCurso != curso->codigo) {
+            curso = obterCursoPeloCodigo(candidato->codigoCurso, cursosV);
+        }
+
+        resultadosCandidato->codigoCandidato = acertos->codigoCandidato;
+        resultadosCandidato->redacao = acertos->RED;
+
+        // Calcula o escore padronizado do candidato em cada competência
+        calcularEscorePadronizado(
+            &resultadosCandidato->linguagens,
+            acertos->V_LIN, 
+            competencias.linguagens.media, 
+            competencias.linguagens.desvioPadrao
+        );
+
+        calcularEscorePadronizado(
+            &resultadosCandidato->matematica,
+            acertos->V_MAT, 
+            competencias.matematica.media, 
+            competencias.matematica.desvioPadrao
+        );
+
+        calcularEscorePadronizado(
+            &resultadosCandidato->ciencias,
+            acertos->V_NAT, 
+            competencias.ciencias.media, 
+            competencias.ciencias.desvioPadrao
+        );
+        
+        calcularEscorePadronizado(
+            &resultadosCandidato->humanas,
+            acertos->V_HUM, 
+            competencias.humanas.media, 
+            competencias.humanas.desvioPadrao
+        );
+
+        calcularNotaFinal(resultadosCandidato, *curso);
+    }
 }
 
 void carregarCursos(CursoVetor* cursosV) {
