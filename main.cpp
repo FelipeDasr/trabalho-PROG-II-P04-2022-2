@@ -190,8 +190,26 @@ void gerarArquivosDeSaida() {
 
 }
 
-void pesquisarCandidato(CandidatoVetor* candidatos) {
+void pesquisarCandidato(CandidatoVetor* candidatosV) {
+    int inscricao;
+    printf("\nNumero de inscricao do candidato: ");
+    scanf("%d", &inscricao);
 
+    Candidato* candidato = obterCandidatoPelaInscricao(inscricao, candidatosV);
+
+    if(candidato) {
+        printf("\nINSCRICAO: \t\t%d\n", candidato->inscricao);
+        printf("NOME: \t\t\t%s\n", candidato->nome);
+        printf("DATA DE NASCIMENTO: \t%02d/%02d/%d\n", 
+            candidato->dataNascimento.dia,
+            candidato->dataNascimento.mes,
+            candidato->dataNascimento.ano
+        );
+        printf("CURSO: \t\t\t%d\n\n", candidato->codigoCurso);
+    }
+    else {
+        printf("\nCandidato inexistente\n\n");
+    }
 }
 
 void gerarArquivoDosCandidatosReprovados() {
