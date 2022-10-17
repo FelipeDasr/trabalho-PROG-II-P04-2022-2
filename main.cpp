@@ -90,6 +90,7 @@ void gerarArquivoDosCandidatosReprovados();
 void alterarNotaDaRedacao();
 
 void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias);
+float calcularEscorePadronizado(int acertos, float media, float desvioPadrao);
 void calcularResultadosDoCandidato(
     ResultadosCandidato* resultados, AcertosVetor* acertosV, Competencias competencias);
 
@@ -208,6 +209,10 @@ void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias) {
     competencias->linguagens.desvioPadrao = sqrt(dpBrutoLinguagens / tamanho) * 2;
     competencias->ciencias.desvioPadrao = sqrt(dpBrutoCiencias / tamanho) * 2;
     competencias->humanas.desvioPadrao = sqrt(dpBrutoHumanas / tamanho) * 2;
+}
+
+float calcularEscorePadronizado(int acertos, float media, float desvioPadrao) {
+
 }
 
 void calcularResultadosDosCandidatos(
