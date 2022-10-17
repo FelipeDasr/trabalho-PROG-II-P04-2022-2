@@ -59,6 +59,18 @@ struct AcertosVetor {
     Acertos* acertos;
 };
 
+struct Competencias {
+    struct DesvioEMedia {
+        float desvioPadrao;
+        float media; 
+    };
+
+    DesvioEMedia linguagens;
+    DesvioEMedia matematica;
+    DesvioEMedia ciencias;
+    DesvioEMedia humanas;
+};
+
 int pegarOpcaoDoMenu(bool dadosCarregados);
 
 void gerarArquivosDeSaida();
