@@ -105,6 +105,7 @@ void calcularEscorePadronizado(
 void calcularResultadosDosCandidatos(
     ResultadosCandidato* resultados, 
     AcertosVetor* acertosV, 
+    CandidatoVetor* candidatosV,
     CursoVetor* cursosV,
     Competencias competencias
 );
@@ -114,7 +115,7 @@ void calcularNotaFinal(ResultadosCandidato* resultados, Curso curso);
 void carregarCursos(CursoVetor* cursosV);
 void carregarVagas(VagaVetor* vagasV);
 void carregarCandidatos(CandidatoVetor* candidatosV);
-void carregarAcertos(AcertosVetor* acertosV, CursoVetor* cursosV);
+void carregarAcertos(AcertosVetor* acertosV, CursoVetor* cursosV, CandidatoVetor* candidatosV);
 
 bool arquivoFoiAberto(FILE* arquivo);
 
@@ -134,7 +135,7 @@ int main() {
             carregarCursos(&cursosV);
             carregarVagas(&vagasV);
             carregarCandidatos(&candidatosV);
-            carregarAcertos(&acertosV, &cursosV);
+            carregarAcertos(&acertosV, &cursosV, &candidatosV);
             dadosCarregados = true;
         }
         else if (opcao == 1) {
@@ -273,6 +274,7 @@ void calcularNotaFinal(ResultadosCandidato* resultados, Curso curso) {
 void calcularResultadosDosCandidatos(
     ResultadosCandidato* resultados, 
     AcertosVetor* acertosV,
+    CandidatoVetor* candidatosV,
     CursoVetor* cursosV,
     Competencias competencias
 ) {
@@ -372,7 +374,11 @@ void carregarCandidatos(CandidatoVetor* candidatosV) {
     fclose(candidatosArquivo);
 }
 
-void carregarAcertos(AcertosVetor* acertosV, CursoVetor* cursosV) {
+void carregarAcertos(
+    AcertosVetor* acertosV, 
+    CursoVetor* cursosV, 
+    CandidatoVetor* candidatosV
+) {
     FILE* acertosArquivo = fopen("dados/acertos.txt", "r");
     fscanf(acertosArquivo, "%d", &acertosV->tamanho);
 
@@ -419,6 +425,7 @@ void carregarAcertos(AcertosVetor* acertosV, CursoVetor* cursosV) {
     calcularResultadosDosCandidatos(
         resultados, 
         acertosV,
+        candidatosV,
         cursosV,
         competencias
     );
