@@ -89,6 +89,8 @@ void pesquisarCandidato(CandidatoVetor* candidatosV);
 void gerarArquivoDosCandidatosReprovados();
 void alterarNotaDaRedacao();
 
+Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV);
+
 void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias);
 void calcularEscorePadronizado(
     float* campoResultado, int acertos, float media, float desvioPadrao);
@@ -183,6 +185,14 @@ void gerarArquivoDosCandidatosReprovados() {
 
 void alterarNotaDaRedacao() {
 
+}
+
+Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV) {
+    for (int index = 0; index < cursosV->tamanho; index++) {
+        if(cursosV->cursos[index].codigo == codigo) 
+            return &cursosV->cursos[index];
+    }
+    return NULL;
 }
 
 void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias) {
@@ -345,6 +355,7 @@ void carregarAcertos(AcertosVetor* acertosV) {
     acertosV->acertos = (Acertos*) calloc(acertosV->tamanho, sizeof(Acertos));
     Acertos novosAcertos;
 
+    ResultadosCandidato* resultados;
     Competencias competencias;
 
     for(int index = 0; (index < acertosV->tamanho && feof(acertosArquivo) == 0); index++) {
