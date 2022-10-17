@@ -78,6 +78,8 @@ void pesquisarCandidato(CandidatoVetor* candidatosV);
 void gerarArquivoDosCandidatosReprovados();
 void alterarNotaDaRedacao();
 
+void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias);
+
 void carregarCursos(CursoVetor* cursosV);
 void carregarVagas(VagaVetor* vagasV);
 void carregarCandidatos(CandidatoVetor* candidatosV);
@@ -166,6 +168,10 @@ void gerarArquivoDosCandidatosReprovados() {
 
 void alterarNotaDaRedacao() {
 
+}
+
+void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias) {
+    
 }
 
 void carregarCursos(CursoVetor* cursosV) {
