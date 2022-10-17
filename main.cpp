@@ -90,6 +90,8 @@ void gerarArquivoDosCandidatosReprovados();
 void alterarNotaDaRedacao();
 
 void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias);
+void calcularResultadosDoCandidato(
+    ResultadosCandidato* resultados, AcertosVetor* acertosV, Competencias competencias);
 
 void carregarCursos(CursoVetor* cursosV);
 void carregarVagas(VagaVetor* vagasV);
@@ -206,6 +208,14 @@ void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias) {
     competencias->linguagens.desvioPadrao = sqrt(dpBrutoLinguagens / tamanho) * 2;
     competencias->ciencias.desvioPadrao = sqrt(dpBrutoCiencias / tamanho) * 2;
     competencias->humanas.desvioPadrao = sqrt(dpBrutoHumanas / tamanho) * 2;
+}
+
+void calcularResultadosDosCandidatos(
+    ResultadosCandidato* resultados, 
+    AcertosVetor* acertosV, 
+    Competencias competencias
+) {
+
 }
 
 void carregarCursos(CursoVetor* cursosV) {
