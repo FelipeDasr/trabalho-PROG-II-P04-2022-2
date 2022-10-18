@@ -1,3 +1,6 @@
+#ifndef REGISTROS_H
+#define REGISTROS_H
+
 struct Curso {
     int codigo;
     char nome[51];
@@ -82,3 +85,5 @@ struct Competencias {
     DesvioEMedia ciencias;
     DesvioEMedia humanas;
 };
+
+#endif
