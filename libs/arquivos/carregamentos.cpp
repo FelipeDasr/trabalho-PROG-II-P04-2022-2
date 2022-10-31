@@ -13,14 +13,14 @@ void carregarCursos(CursoVetor* cursosV) {
     for (int index = 0; (index < cursosV->tamanho && feof(cursosArquivo) == 0); index++) {
         Curso novoCurso;
         fscanf(cursosArquivo, "%d %[^0-9] %d %d %d %d %d",
-               &novoCurso.codigo,
-               novoCurso.nome,
-               &novoCurso.pesoRed,
-               &novoCurso.pesoMat,
-               &novoCurso.pesoLin,
-               &novoCurso.pesoHum,
-               &novoCurso.pesoNat
-              );
+            &novoCurso.codigo,
+            novoCurso.nome,
+            &novoCurso.pesoRed,
+            &novoCurso.pesoMat,
+            &novoCurso.pesoLin,
+            &novoCurso.pesoHum,
+            &novoCurso.pesoNat
+        );
 
         cursosV->cursos[index] = novoCurso;
     }
@@ -37,19 +37,19 @@ void carregarVagas(VagaVetor* vagasV) {
     for(int index = 0; (index < vagasV->tamanho && feof(vagasArquivo) == 0); index++) {
         Vaga novaVaga;
         fscanf(vagasArquivo, "%d %d %d %d %d %d %d %d %d %d %d %d",
-               &novaVaga.codigoCurso,
-               &novaVaga.AC,
-               &novaVaga.L1,
-               &novaVaga.L3,
-               &novaVaga.L4,
-               &novaVaga.L5,
-               &novaVaga.L7,
-               &novaVaga.L8,
-               &novaVaga.L9,
-               &novaVaga.L11,
-               &novaVaga.L13,
-               &novaVaga.L15
-              );
+            &novaVaga.codigoCurso,
+            &novaVaga.AC,
+            &novaVaga.L1,
+            &novaVaga.L3,
+            &novaVaga.L4,
+            &novaVaga.L5,
+            &novaVaga.L7,
+            &novaVaga.L8,
+            &novaVaga.L9,
+            &novaVaga.L11,
+            &novaVaga.L13,
+            &novaVaga.L15
+        );
         vagasV->vagas[index] = novaVaga;
     }
     fclose(vagasArquivo);
@@ -72,8 +72,10 @@ void carregarCandidatos(CandidatoVetor* candidatosV) {
             candidatosV->tamanho = quantidadeCandidatos;
         } else {
             candidatosV->tamanho += quantidadeCandidatos;
-            candidatosV->candidatos = (Candidato*) realloc(candidatosV->candidatos, 
-                candidatosV->tamanho * sizeof(Candidato));
+            candidatosV->candidatos = (Candidato*) realloc(
+                candidatosV->candidatos, 
+                candidatosV->tamanho * sizeof(Candidato)
+            );
         }
 
         for (int index = 0; (index < quantidadeCandidatos && feof(candidatosArquivo) == 0); index++) {
@@ -81,13 +83,13 @@ void carregarCandidatos(CandidatoVetor* candidatosV) {
             novoCandidato.codigoCurso = codigoCurso;
 
             fscanf(candidatosArquivo, "%d %[^0-9] %d/%d/%d %s",
-                   &novoCandidato.inscricao,
-                   novoCandidato.nome,
-                   &novoCandidato.dataNascimento.dia,
-                   &novoCandidato.dataNascimento.mes,
-                   &novoCandidato.dataNascimento.ano,
-                   novoCandidato.cota
-                  );
+               &novoCandidato.inscricao,
+               novoCandidato.nome,
+               &novoCandidato.dataNascimento.dia,
+               &novoCandidato.dataNascimento.mes,
+               &novoCandidato.dataNascimento.ano,
+               novoCandidato.cota
+            );
 
             candidatosV->candidatos[primeiraPosicaoDisponivel + index] = novoCandidato;
         }
@@ -111,12 +113,12 @@ void carregarAcertos(
 
     for(int index = 0; (index < acertosV->tamanho && feof(acertosArquivo) == 0); index++) {
         fscanf(acertosArquivo, "%d %d %d %d %d %f",
-               &novosAcertos.codigoCandidato,
-               &novosAcertos.V_LIN,
-               &novosAcertos.V_MAT,
-               &novosAcertos.V_NAT,
-               &novosAcertos.V_HUM,
-               &novosAcertos.RED
+            &novosAcertos.codigoCandidato,
+            &novosAcertos.V_LIN,
+            &novosAcertos.V_MAT,
+            &novosAcertos.V_NAT,
+            &novosAcertos.V_HUM,
+            &novosAcertos.RED
         );
 
         // Aproveitando o laço de leitura e adicionando o acerto no atributo `media` de 

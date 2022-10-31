@@ -62,7 +62,11 @@ void calcularResultadosDosCandidatos(
     Competencias competencias
 ) {
     // Alocando o vetor de resultados dos candidatos
-    resultados = (ResultadosCandidato*) calloc(acertosV->tamanho, sizeof(ResultadosCandidato));
+    resultados = (ResultadosCandidato*) calloc(
+        acertosV->tamanho, 
+        sizeof(ResultadosCandidato)
+    );
+    
     Curso* curso = cursosV->cursos;
 
     for (int index = 0; index < acertosV->tamanho; index++) {
