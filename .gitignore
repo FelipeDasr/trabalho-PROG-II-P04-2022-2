@@ -1,3 +1,4 @@
 *.exe
 *.o
 testes.cpp
+main
