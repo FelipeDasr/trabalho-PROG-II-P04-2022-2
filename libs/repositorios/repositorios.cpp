@@ -1,4 +1,5 @@
 #include "../repositorios/repositorios.h"
+#include "../calculos/calculos.h"
 #include <stdio.h>
 
 Candidato* obterCandidatoPelaInscricao(int inscricao, CandidatoVetor* candidatosV) {
@@ -17,8 +18,13 @@ Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV) {
     return NULL;
 }
 
-void alterarNotaDasRedacoes(
-    RedacaoVetor* redacoesV
+ResultadosCandidato* obterResultadosPeloCodigoCandidato(
+    int codigo,
+    ResultadosCandidatoVetor* resultadosV
 ) {
-
+    for (int index = 0; index < resultadosV->tamanho; index++) {
+        if(resultadosV->resultados[index].codigoCandidato == codigo) 
+            return &resultadosV->resultados[index];
+    }
+    return NULL;
 }
