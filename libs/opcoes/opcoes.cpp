@@ -87,5 +87,12 @@ void alterarNotaDaRedacao(
     if (!redacoesV.tamanho) return;
 
     // Alterando as notas das redações dos candidatos
-    alterarNotaDasRedacoes(&redacoesV);
+    int notasAlteradas = (
+        alterarNotaDeTodasAsRedacoes(&redacoesV, cursosV, resultadosV, candidatosV)
+    );
+
+    // Liberando os registros do arquivo de alteração de notas
+    free(redacoesV.redacoes);
+
+    printf("\nRedações alteradas: %d\n\n", notasAlteradas);
 }
