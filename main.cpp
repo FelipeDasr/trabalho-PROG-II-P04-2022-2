@@ -31,6 +31,7 @@ int main() {
         }
         else if (opcao == 5) {
             free(candidatosV.candidatos);
+            free(resultadosV.resultados);
             free(cursosV.cursos);
             free(vagasV.vagas);
             return 0;
