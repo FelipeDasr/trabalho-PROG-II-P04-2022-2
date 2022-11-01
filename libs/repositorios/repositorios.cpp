@@ -16,3 +16,10 @@ Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV) {
     }
     return NULL;
 }
+
+void alterarNotaDasRedacoes(
+    RedacaoVetor* redacoesV,
+    AcertosVetor* acertosV
+) {
+
+}
