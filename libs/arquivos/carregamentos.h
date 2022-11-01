@@ -11,3 +11,8 @@ void carregarAcertos(
     CursoVetor* cursosV, 
     CandidatoVetor* candidatosV
 );
+
+void carregarRedacoes(
+    char* nomeDoArquivoRedacao, 
+    RedacaoVetor* redacoesV
+);
