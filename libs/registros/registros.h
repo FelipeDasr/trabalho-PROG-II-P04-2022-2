@@ -36,7 +36,7 @@ struct Acertos {
     int V_MAT;
     int V_NAT;
     int V_HUM;
-    float RED;
+    int RED;
 };
 
 struct ResultadosCandidato {
@@ -45,7 +45,7 @@ struct ResultadosCandidato {
     float matematica;
     float ciencias;
     float humanas;
-    float redacao;
+    int redacao;
     float notaFinal;
 };
 

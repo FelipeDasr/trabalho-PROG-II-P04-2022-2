@@ -113,7 +113,7 @@ void carregarAcertos(
     Competencias competencias;
 
     for(int index = 0; (index < acertosV.tamanho && feof(acertosArquivo) == 0); index++) {
-        fscanf(acertosArquivo, "%d %d %d %d %d %f",
+        fscanf(acertosArquivo, "%d %d %d %d %d %d",
             &novosAcertos.codigoCandidato,
             &novosAcertos.V_LIN,
             &novosAcertos.V_MAT,
