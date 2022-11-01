@@ -71,6 +71,17 @@ void gerarArquivoDosCandidatosReprovados() {
 
 }
 
-void alterarNotaDaRedacao() {
+void alterarNotaDaRedacao(AcertosVetor* acertosV) {
+    char nomeDoArquivoRedacao[100];
+    RedacaoVetor redacoesV;
 
+    printf("\nInforme o nome do arquivo: ");
+    scanf("%s", nomeDoArquivoRedacao);
+
+    // Carrega as redações do arquivo informado anteriormente
+    carregarRedacoes(nomeDoArquivoRedacao, &redacoesV);
+    if (!redacoesV.tamanho) return;
+
+    // Alterando as notas das redações dos candidatos
+    alterarNotaDasRedacoes(&redacoesV, acertosV);
 }
