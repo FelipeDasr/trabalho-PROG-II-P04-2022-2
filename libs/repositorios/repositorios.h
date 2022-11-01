@@ -6,3 +6,9 @@ ResultadosCandidato* obterResultadosPeloCodigoCandidato(
     int codigo,
     ResultadosCandidatoVetor* resultadosV
 ) ;
+int alterarNotaDeTodasAsRedacoes(
+    RedacaoVetor* redacoesV,
+    CursoVetor* cursosV,
+    ResultadosCandidatoVetor* resultadosV,
+    CandidatoVetor* candidatosV
+);
