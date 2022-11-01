@@ -27,7 +27,7 @@ int main() {
             gerarArquivoDosCandidatosReprovados();
         }
         else if (opcao == 4) {
-            alterarNotaDaRedacao();
+            alterarNotaDaRedacao(&cursosV, &resultadosV, &candidatosV);
         }
         else if (opcao == 5) {
             free(candidatosV.candidatos);
