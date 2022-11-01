@@ -1,6 +1,7 @@
 #include "../registros/registros.h"
 #include "../repositorios/repositorios.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <math.h>
 
 void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias) {

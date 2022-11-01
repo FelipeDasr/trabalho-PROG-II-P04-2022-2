@@ -32,13 +32,12 @@ int pegarOpcaoDoMenu(bool dadosCarregados) {
 void carregarArquivos(
     CursoVetor* cursosV, 
     VagaVetor* vagasV, 
-    CandidatoVetor* candidatosV,
-    AcertosVetor* acertosV
+    CandidatoVetor* candidatosV
 ) {
     carregarCursos(cursosV);
     carregarVagas(vagasV);
     carregarCandidatos(candidatosV);
-    carregarAcertos(acertosV, cursosV, candidatosV);
+    carregarAcertos(cursosV, candidatosV);
 }
 
 void gerarArquivosDeSaida() {
@@ -71,7 +70,7 @@ void gerarArquivoDosCandidatosReprovados() {
 
 }
 
-void alterarNotaDaRedacao(AcertosVetor* acertosV) {
+void alterarNotaDaRedacao() {
     char nomeDoArquivoRedacao[100];
     RedacaoVetor redacoesV;
 
@@ -83,5 +82,5 @@ void alterarNotaDaRedacao(AcertosVetor* acertosV) {
     if (!redacoesV.tamanho) return;
 
     // Alterando as notas das redações dos candidatos
-    alterarNotaDasRedacoes(&redacoesV, acertosV);
+    alterarNotaDasRedacoes(&redacoesV);
 }

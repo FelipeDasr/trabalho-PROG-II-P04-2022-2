@@ -98,20 +98,21 @@ void carregarCandidatos(CandidatoVetor* candidatosV) {
 }
 
 void carregarAcertos(
-    AcertosVetor* acertosV, 
     CursoVetor* cursosV, 
     CandidatoVetor* candidatosV
 ) {
-    FILE* acertosArquivo = fopen("dados/acertos.txt", "r");
-    fscanf(acertosArquivo, "%d", &acertosV->tamanho);
+    AcertosVetor acertosV;
 
-    acertosV->acertos = (Acertos*) calloc(acertosV->tamanho, sizeof(Acertos));
+    FILE* acertosArquivo = fopen("dados/acertos.txt", "r");
+    fscanf(acertosArquivo, "%d", &acertosV.tamanho);
+
+    acertosV.acertos = (Acertos*) calloc(acertosV.tamanho, sizeof(Acertos));
     Acertos novosAcertos;
 
     ResultadosCandidato resultados;
     Competencias competencias;
 
-    for(int index = 0; (index < acertosV->tamanho && feof(acertosArquivo) == 0); index++) {
+    for(int index = 0; (index < acertosV.tamanho && feof(acertosArquivo) == 0); index++) {
         fscanf(acertosArquivo, "%d %d %d %d %d %f",
             &novosAcertos.codigoCandidato,
             &novosAcertos.V_LIN,
@@ -128,12 +129,12 @@ void carregarAcertos(
         competencias.ciencias.media += novosAcertos.V_NAT;
         competencias.humanas.media += novosAcertos.V_HUM;
 
-        acertosV->acertos[index] = novosAcertos;
+        acertosV.acertos[index] = novosAcertos;
     }
 
     // Já que será necessário multiplicar por 2 a média e o desvio padrão
     // basta dividir a quantidade de condidatos por 2
-    float tamanhoParaOCalculo = acertosV->tamanho / 2;
+    float tamanhoParaOCalculo = acertosV.tamanho / 2;
 
     // Realizando o cálculo final das médias
     competencias.matematica.media /= tamanhoParaOCalculo;
@@ -142,12 +143,12 @@ void carregarAcertos(
     competencias.humanas.media /= tamanhoParaOCalculo;
 
     // Calcula o desvio padrão de todas as competências
-    calcularDesvioPadrao(acertosV, &competencias);
+    calcularDesvioPadrao(&acertosV, &competencias);
 
     //
     calcularResultadosDosCandidatos(
         &resultados, 
-        acertosV,
+        &acertosV,
         candidatosV,
         cursosV,
         competencias

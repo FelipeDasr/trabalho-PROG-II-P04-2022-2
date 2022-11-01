@@ -3,6 +3,5 @@
 Candidato* obterCandidatoPelaInscricao(int inscricao, CandidatoVetor* candidatosV);
 Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV);
 void alterarNotaDasRedacoes(
-    RedacaoVetor* redacoesV,
-    AcertosVetor* acertosV
+    RedacaoVetor* redacoesV
 );

@@ -15,7 +15,7 @@ int main() {
         int opcao = pegarOpcaoDoMenu(dadosCarregados);
 
         if (opcao == 0) {
-            carregarArquivos(&cursosV, &vagasV, &candidatosV, &acertosV);
+            carregarArquivos(&cursosV, &vagasV, &candidatosV);
             dadosCarregados = true;
         }
         else if (opcao == 1) {
@@ -28,7 +28,7 @@ int main() {
             gerarArquivoDosCandidatosReprovados();
         }
         else if (opcao == 4) {
-            alterarNotaDaRedacao(&acertosV);
+            alterarNotaDaRedacao();
         }
         else if (opcao == 5) {
             free(candidatosV.candidatos);

@@ -18,8 +18,7 @@ Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV) {
 }
 
 void alterarNotaDasRedacoes(
-    RedacaoVetor* redacoesV,
-    AcertosVetor* acertosV
+    RedacaoVetor* redacoesV
 ) {
 
 }

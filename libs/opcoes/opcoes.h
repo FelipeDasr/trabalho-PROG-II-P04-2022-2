@@ -5,10 +5,9 @@ int pegarOpcaoDoMenu(bool dadosCarregados);
 void carregarArquivos(
     CursoVetor* cursosV, 
     VagaVetor* vagasV, 
-    CandidatoVetor* candidatosV,
-    AcertosVetor* acertosV
+    CandidatoVetor* candidatosV
 );
 void gerarArquivosDeSaida();
 void pesquisarCandidato(CandidatoVetor* candidatosV);
 void gerarArquivoDosCandidatosReprovados();
-void alterarNotaDaRedacao(AcertosVetor* acertosV);
+void alterarNotaDaRedacao();
