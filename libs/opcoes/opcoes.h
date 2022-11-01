@@ -11,4 +11,8 @@ void carregarArquivos(
 void gerarArquivosDeSaida();
 void pesquisarCandidato(CandidatoVetor* candidatosV);
 void gerarArquivoDosCandidatosReprovados();
-void alterarNotaDaRedacao();
+void alterarNotaDaRedacao(
+    CursoVetor* cursosV,
+    ResultadosCandidatoVetor* resultadosV,
+    CandidatoVetor* candidatosV
+);
