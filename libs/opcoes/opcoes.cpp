@@ -71,7 +71,11 @@ void gerarArquivoDosCandidatosReprovados() {
 
 }
 
-void alterarNotaDaRedacao() {
+void alterarNotaDaRedacao(
+    CursoVetor* cursosV,
+    ResultadosCandidatoVetor* resultadosV,
+    CandidatoVetor* candidatosV
+) {
     char nomeDoArquivoRedacao[100];
     RedacaoVetor redacoesV;
 
