@@ -32,12 +32,13 @@ int pegarOpcaoDoMenu(bool dadosCarregados) {
 void carregarArquivos(
     CursoVetor* cursosV, 
     VagaVetor* vagasV, 
-    CandidatoVetor* candidatosV
+    CandidatoVetor* candidatosV,
+    ResultadosCandidatoVetor* resultadosV
 ) {
     carregarCursos(cursosV);
     carregarVagas(vagasV);
     carregarCandidatos(candidatosV);
-    carregarAcertos(cursosV, candidatosV);
+    carregarAcertos(cursosV, candidatosV, resultadosV);
 }
 
 void gerarArquivosDeSaida() {

@@ -8,7 +8,8 @@ void carregarVagas(VagaVetor* vagasV);
 void carregarCandidatos(CandidatoVetor* candidatosV);
 void carregarAcertos(
     CursoVetor* cursosV, 
-    CandidatoVetor* candidatosV
+    CandidatoVetor* candidatosV,
+    ResultadosCandidatoVetor* resultadosV
 );
 
 void carregarRedacoes(

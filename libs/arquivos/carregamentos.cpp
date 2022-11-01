@@ -99,7 +99,8 @@ void carregarCandidatos(CandidatoVetor* candidatosV) {
 
 void carregarAcertos(
     CursoVetor* cursosV, 
-    CandidatoVetor* candidatosV
+    CandidatoVetor* candidatosV,
+    ResultadosCandidatoVetor* resultadosV
 ) {
     AcertosVetor acertosV;
 
@@ -109,7 +110,6 @@ void carregarAcertos(
     acertosV.acertos = (Acertos*) calloc(acertosV.tamanho, sizeof(Acertos));
     Acertos novosAcertos;
 
-    ResultadosCandidato resultados;
     Competencias competencias;
 
     for(int index = 0; (index < acertosV.tamanho && feof(acertosArquivo) == 0); index++) {
@@ -147,7 +147,7 @@ void carregarAcertos(
 
     //
     calcularResultadosDosCandidatos(
-        &resultados, 
+        resultadosV, 
         &acertosV,
         candidatosV,
         cursosV,

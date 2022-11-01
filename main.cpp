@@ -14,7 +14,7 @@ int main() {
         int opcao = pegarOpcaoDoMenu(dadosCarregados);
 
         if (opcao == 0) {
-            carregarArquivos(&cursosV, &vagasV, &candidatosV);
+            carregarArquivos(&cursosV, &vagasV, &candidatosV, &resultadosV);
             dadosCarregados = true;
         }
         else if (opcao == 1) {
