@@ -156,6 +156,35 @@ void carregarAcertos(
     fclose(acertosArquivo);
 }
 
+void carregarRedacoes(char* nomeDoArquivoRedacao, RedacaoVetor* redacoesV) {
+    // Abrindo o arquivo informado pelo usuário
+    FILE* arquivoRedacao = fopen(nomeDoArquivoRedacao, "r");
+
+    if (!arquivoFoiAberto(arquivoRedacao)) return;
+
+    // Lendo quantos registros o arquivo possui
+    fscanf(arquivoRedacao, "%d", &redacoesV->tamanho);
+
+    // Memória alocada para guardar as notas das redações
+    redacoesV->redacoes = (Redacao*) calloc(
+        redacoesV->tamanho, 
+        sizeof(Redacao)
+    );
+
+    // Percorrendo as linhas e lendo os registros
+    for (int index = 0; index < redacoesV->tamanho; index++) {
+        Redacao redacao;
+
+        fscanf(arquivoRedacao, "%d %d %d", 
+            &redacao.inscricaoAluno,
+            &redacao.notaAnterior,
+            &redacao.notaAlterada
+        );
+
+        redacoesV->redacoes[index] = redacao;
+    }
+}
+
 bool arquivoFoiAberto(FILE* arquivo) {
     if (arquivo == NULL) {
         printf("\n\nErro ao abrir arquivo!\n\n");
