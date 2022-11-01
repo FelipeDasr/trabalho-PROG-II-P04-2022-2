@@ -7,7 +7,6 @@ int main() {
 
     ResultadosCandidatoVetor resultadosV;
     CandidatoVetor candidatosV;
-    AcertosVetor acertosV;
     CursoVetor cursosV;
     VagaVetor vagasV;
 
@@ -32,7 +31,6 @@ int main() {
         }
         else if (opcao == 5) {
             free(candidatosV.candidatos);
-            free(acertosV.acertos);
             free(cursosV.cursos);
             free(vagasV.vagas);
             return 0;
