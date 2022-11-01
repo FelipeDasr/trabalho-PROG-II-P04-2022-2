@@ -184,6 +184,8 @@ void carregarRedacoes(char* nomeDoArquivoRedacao, RedacaoVetor* redacoesV) {
 
         redacoesV->redacoes[index] = redacao;
     }
+
+    fclose(arquivoRedacao);
 }
 
 bool arquivoFoiAberto(FILE* arquivo) {
