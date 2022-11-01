@@ -3,7 +3,7 @@
 void calcularDesvioPadrao(AcertosVetor* acertosV, Competencias* competencias);
 float calcularEscorePadronizado(int acertos, float media, float desvioPadrao);
 void calcularResultadosDosCandidatos(
-    ResultadosCandidato* resultados, 
+    ResultadosCandidatoVetor* resultadosV,
     AcertosVetor* acertosV, 
     CandidatoVetor* candidatosV,
     CursoVetor* cursosV,

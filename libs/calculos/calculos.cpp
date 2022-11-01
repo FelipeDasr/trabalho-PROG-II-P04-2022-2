@@ -56,22 +56,23 @@ void calcularNotaFinal(ResultadosCandidato* resultados, Curso curso) {
 }
 
 void calcularResultadosDosCandidatos(
-    ResultadosCandidato* resultados, 
+    ResultadosCandidatoVetor* resultadosV,
     AcertosVetor* acertosV,
     CandidatoVetor* candidatosV,
     CursoVetor* cursosV,
     Competencias competencias
 ) {
     // Alocando o vetor de resultados dos candidatos
-    resultados = (ResultadosCandidato*) calloc(
+    resultadosV->resultados = (ResultadosCandidato*) calloc(
         acertosV->tamanho, 
         sizeof(ResultadosCandidato)
     );
+    resultadosV->tamanho = acertosV->tamanho;
     
     Curso* curso = cursosV->cursos;
 
     for (int index = 0; index < acertosV->tamanho; index++) {
-        ResultadosCandidato* resultadosCandidato = &resultados[index];
+        ResultadosCandidato* resultadosCandidato = &resultadosV->resultados[index];
         Acertos* acertos = &acertosV->acertos[index];
 
         Candidato* candidato = obterCandidatoPelaInscricao(
@@ -113,6 +114,8 @@ void calcularResultadosDosCandidatos(
             competencias.humanas.media, 
             competencias.humanas.desvioPadrao
         );
+
+        resultadosCandidato->redacao = acertos->RED;
 
         calcularNotaFinal(resultadosCandidato, *curso);
     }
