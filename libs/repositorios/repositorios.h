@@ -12,3 +12,8 @@ int alterarNotaDeTodasAsRedacoes(
     ResultadosCandidatoVetor* resultadosV,
     CandidatoVetor* candidatosV
 );
+CursosComCandidatosVetor* obterCursosComCandidatos(
+    ResultadosCandidatoVetor* resultadosV,
+    CandidatoVetor* candidatosV,
+    CursoVetor* cursosV
+);
