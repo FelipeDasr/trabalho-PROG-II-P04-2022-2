@@ -100,7 +100,7 @@ struct RedacaoVetor {
     Redacao* redacoes;
 };
 
-// Estrutura que armazenará todas as informações 
+// Estrutura que armazenará todas as informações temporariamente
 // dos candidatos que pertecem a um certo curso
 struct CandidatosCursoVetor {
     int tamanho = 0;
