@@ -42,7 +42,11 @@ void carregarArquivos(
     carregarAcertos(cursosV, candidatosV, resultadosV);
 }
 
-void gerarArquivosDeSaida() {
+void gerarArquivosDeSaida(
+    ResultadosCandidatoVetor* resultadosV,
+    CandidatoVetor* candidatosV,
+    CursoVetor* cursosV
+) {
 
 }
 
