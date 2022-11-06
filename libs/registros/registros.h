@@ -55,47 +55,61 @@ struct Redacao {
     int notaAlterada;
 };
 
+// Estrutura que que armazenará os ponteiros 
+// para as principais informações do candidato
 struct CandidatoInformacoes {
     Candidato* candidato;
     ResultadosCandidato* resultadosCandidato;
 };
 
+// Estrutura que armazenará os cursos cadastrados
 struct CursoVetor {
     int tamanho = 0;
     Curso* cursos;
 };
 
+// Estrutura que armazenará as vagas de cada curso
 struct VagaVetor {
     int tamanho = 0;
     Vaga* vagas;
 };
 
+// Estrutura que armazenará os candidatos cadastrados
 struct CandidatoVetor {
     int tamanho = 0;
     Candidato* candidatos;
 };
 
+// Estrutura que armazenará os acertos 
+// de todos os candidatos
 struct AcertosVetor {
     int tamanho = 0;
     Acertos* acertos;
 };
 
+// Estrutura que armazenará os resultados dos candidatos
 struct ResultadosCandidatoVetor {
     int tamanho = 0;
     ResultadosCandidato* resultados;
 };
 
+// Estrutura que armazenará temporáriamente as redações 
+// cuja os candidatos pediram recurso
 struct RedacaoVetor {
     int tamanho = 0;
     Redacao* redacoes;
 };
 
+// Estrutura que armazenará todas as informações 
+// dos candidatos que pertecem a um certo curso
 struct CandidatosCursoVetor {
     int tamanho = 0;
     Curso* curso;
     CandidatoInformacoes* informacoesCandidatos;
 };
 
+// Estrutura que armazenará o desvio padrão e média de cada
+// competencia
 struct Competencias {
     struct DesvioEMedia {
         float desvioPadrao = 0;
