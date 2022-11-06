@@ -90,7 +90,7 @@ struct RedacaoVetor {
     Redacao* redacoes;
 };
 
-struct CandidatoInformacoesVetor {
+struct CandidatosCursoVetor {
     int tamanho = 0;
     Curso* curso;
     CandidatoInformacoes* informacoesCandidatos;
