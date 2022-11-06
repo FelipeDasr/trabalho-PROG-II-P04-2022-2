@@ -59,7 +59,7 @@ struct Redacao {
 // para as principais informações do candidato
 struct CandidatoInformacoes {
     Candidato* candidato;
-    ResultadosCandidato* resultadosCandidato;
+    ResultadosCandidato* resultados;
 };
 
 // Estrutura que armazenará os cursos cadastrados
