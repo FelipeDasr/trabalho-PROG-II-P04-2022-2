@@ -108,6 +108,11 @@ struct CandidatosCursoVetor {
     CandidatoInformacoes* informacoesCandidatos;
 };
 
+struct CursosComCandidatosVetor {
+    int tamanho = 0;
+    CandidatosCursoVetor* cursos;
+};
+
 // Estrutura que armazenará o desvio padrão e média de cada
 // competencia
 struct Competencias {
