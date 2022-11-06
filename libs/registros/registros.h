@@ -55,6 +55,11 @@ struct Redacao {
     int notaAlterada;
 };
 
+struct CandidatoInformacoes {
+    Candidato* candidato;
+    ResultadosCandidato* resultadosCandidato;
+};
+
 struct CursoVetor {
     int tamanho = 0;
     Curso* cursos;
@@ -83,6 +88,11 @@ struct ResultadosCandidatoVetor {
 struct RedacaoVetor {
     int tamanho = 0;
     Redacao* redacoes;
+};
+
+struct CandidatoInformacoesVetor {
+    int tamanho = 0;
+    CandidatoInformacoes* informacoesCandidatos;
 };
 
 struct Competencias {
