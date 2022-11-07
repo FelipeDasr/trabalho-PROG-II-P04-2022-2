@@ -1,5 +1,6 @@
 #include "../repositorios/repositorios.h"
 #include "../calculos/calculos.h"
+#include <stdlib.h>
 #include <stdio.h>
 
 Candidato* obterCandidatoPelaInscricao(int inscricao, CandidatoVetor* candidatosV) {
@@ -73,4 +74,71 @@ int alterarNotaDeTodasAsRedacoes(
     }
 
     return notasAlteradas;
+}
+
+CursosComCandidatosVetor* obterCursosComCandidatos(
+    ResultadosCandidatoVetor* resultadosV,
+    CandidatoVetor* candidatosV,
+    CursoVetor* cursosV
+) {
+    // Campo que armazenará os cursos
+    CursosComCandidatosVetor* cursosComCandidatosV = (CursosComCandidatosVetor*) calloc(
+        1,
+        sizeof(CursosComCandidatosVetor)
+    );
+
+    cursosComCandidatosV->cursos = (CandidatosCursoVetor*) calloc(
+        cursosV->tamanho,
+        sizeof(CandidatosCursoVetor)
+    );
+
+    for (int cursoIndex = 0; cursoIndex < cursosV->tamanho; cursoIndex++) {
+        // Campo que armazenará o curso com seus respectivos candidatos
+        CandidatosCursoVetor curso;
+        curso.curso = &cursosV->cursos[cursoIndex];
+
+        // Laço que irá percorrer os candidatos
+        for (int candidatoIndex = 0; candidatoIndex < candidatosV->tamanho; candidatoIndex++) {
+            Candidato* candidato = &candidatosV->candidatos[candidatoIndex];
+
+            if (candidato->codigoCurso == curso.curso->codigo) {
+
+                // Caso o array de informações dos candidatos esteja vazio, será alocado
+                // um espaço de memória para armazenar a primeira corrência
+                if(!curso.tamanho) {
+                    curso.informacoesCandidatos = (CandidatoInformacoes*) calloc(
+                        1,
+                        sizeof(CandidatoInformacoes)
+                    );
+                }
+                // Caso o array já tenha conteúdo, a memória será realocada
+                // para que seja possível armazenar mais uma ocorrência
+                else {
+                    curso.informacoesCandidatos = (CandidatoInformacoes*) realloc(
+                        curso.informacoesCandidatos,
+                        (curso.tamanho + 1) * sizeof(CandidatoInformacoes)
+                    );
+                }
+
+                // Ponteiro para o novo registro de informações do candidato
+                CandidatoInformacoes* candidatoInformacoes = &(
+                    curso.informacoesCandidatos[curso.tamanho]
+                );
+
+                // Atribui ao ponteiro as informações
+                candidatoInformacoes->candidato = candidato;
+                candidatoInformacoes->resultados = obterResultadosPeloCodigoCandidato(
+                    candidato->inscricao,
+                    resultadosV
+                );
+
+                curso.tamanho++;
+            }
+        }
+
+        cursosComCandidatosV->cursos[cursoIndex] = curso;
+        cursosComCandidatosV->tamanho++;
+    }
+
+    return cursosComCandidatosV;
 }
