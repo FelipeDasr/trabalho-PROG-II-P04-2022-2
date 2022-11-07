@@ -25,6 +25,9 @@ void carregarCursos(CursoVetor* cursosV) {
         );
 
         cursosV->cursos[index] = novoCurso;
+
+        // Converte o nome do curso para uppercase
+        converterStringParaUppercase(cursosV->cursos[index].nome);
     }
     fclose(cursosArquivo);
 }
@@ -94,6 +97,11 @@ void carregarCandidatos(CandidatoVetor* candidatosV) {
             );
 
             candidatosV->candidatos[primeiraPosicaoDisponivel + index] = novoCandidato;
+
+            // Converte o nome do candito para uppercase
+            converterStringParaUppercase(
+                candidatosV->candidatos[primeiraPosicaoDisponivel + index].nome
+            );
         }
     }
     fclose(candidatosArquivo);
