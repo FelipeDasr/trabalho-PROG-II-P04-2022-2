@@ -3,10 +3,3 @@
 void ordenarCandidatosPorNotaECota (CursosComCandidatosVetor* cursos);
 void ordenarCandidatosPorNome(CursosComCandidatosVetor* cursos);
 void ordenarCursosPorOrdemAlfabetica(CursosComCandidatosVetor* cursos);
-
-// Funções utilitárias
-int compararCandidatos(
-    CandidatoInformacoes* candidatoA, 
-    CandidatoInformacoes* candidatoB
-);
-int compararCotas(char* cotaA, char* cotaB);

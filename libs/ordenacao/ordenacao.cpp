@@ -2,6 +2,14 @@
 #include <stdio.h>
 #include <string.h>
 
+// Funções utilitárias
+int compararCandidatos(
+    CandidatoInformacoes* candidatoA, 
+    CandidatoInformacoes* candidatoB
+);
+int compararCotas(char* cotaA, char* cotaB);
+int compararValoresNumericos(double numeroA, double numeroB);
+
 void ordenarCandidatosPorNotaECota(CursosComCandidatosVetor* cursos) {
     
 }
