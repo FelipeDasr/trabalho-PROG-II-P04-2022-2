@@ -65,6 +65,15 @@ int obterIndiceDaCota(char* cota) {
     } return -1;
 }
 
+// -1, então numeroA é menor que numeroB
+// 0, numeroA é igual a numeroB
+// 1, numeroB é maior que numeroA
+int compararValoresNumericos(double numeroA, double numeroB) {
+    if (numeroA < numeroB) return -1;
+    if (numeroA == numeroB) return 0;
+    return 1;
+}
+
 // -1, então cotaA é menor que cotaB
 // 0, cotaA é igual a cotaB
 // 1, cotaB é maior que cotaA
