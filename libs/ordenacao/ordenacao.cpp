@@ -9,6 +9,7 @@ int compararCandidatos(
 );
 int compararCotas(char* cotaA, char* cotaB);
 int compararValoresNumericos(double numeroA, double numeroB);
+//
 
 void ordenarCandidatosPorNotaECota(CursosComCandidatosVetor* cursos) {
     
