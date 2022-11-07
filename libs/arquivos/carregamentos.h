@@ -1,6 +1,7 @@
 #include "../registros/registros.h"
 #include <stdio.h>
 
+void converterStringParaUppercase(char* string_);
 bool arquivoFoiAberto(FILE* arquivo);
 
 void carregarCursos(CursoVetor* cursosV);

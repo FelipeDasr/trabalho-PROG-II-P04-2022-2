@@ -1,7 +1,9 @@
 #include "../arquivos/carregamentos.h"
 #include "../calculos/calculos.h"
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <ctype.h>
 
 void carregarCursos(CursoVetor* cursosV) {
     FILE* cursosArquivo = fopen("dados/cursos_e_pesos.txt", "r");
@@ -188,10 +190,18 @@ void carregarRedacoes(char* nomeDoArquivoRedacao, RedacaoVetor* redacoesV) {
     fclose(arquivoRedacao);
 }
 
+// Funções utilitárias
+
 bool arquivoFoiAberto(FILE* arquivo) {
     if (arquivo == NULL) {
         printf("\n\nErro ao abrir arquivo!\n\n");
         return false;
     }
     return true;
+}
+
+void converterStringParaUppercase(char* string_) {
+    int tamanhoString = strlen(string_);
+    for (int index = 0; index < tamanhoString; index++)
+        string_[index] = toupper(string_[index]);
 }
