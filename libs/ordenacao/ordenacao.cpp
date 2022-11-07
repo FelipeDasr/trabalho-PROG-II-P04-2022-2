@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <string.h>
 
+void ordenarCandidatosPorNotaECota(CursosComCandidatosVetor* cursos) {
+    
+}
+
 void ordenarCursosPorOrdemAlfabetica(CursosComCandidatosVetor* cursos) {
     // Percorre os cursos para fazer as comparações
     for (int indexI = 0; indexI < cursos->tamanho; indexI++) {
