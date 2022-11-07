@@ -1,4 +1,4 @@
-#include "registros/registros.h"
+#include "../registros/registros.h"
 
 void ordenarCandidatosPorNotaECota (CursosComCandidatosVetor* cursos);
 void ordenarCandidatosPorNome(CursosComCandidatosVetor* cursos);

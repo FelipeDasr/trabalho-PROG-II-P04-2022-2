@@ -1,5 +1,5 @@
-#include "../registros/registros.h"
 #include "../repositorios/repositorios.h"
+#include "calculos.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>

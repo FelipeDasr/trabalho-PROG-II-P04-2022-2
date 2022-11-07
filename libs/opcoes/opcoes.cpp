@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../opcoes/opcoes.h"
-#include "../registros/registros.h"
+#include "opcoes.h"
 #include "../repositorios/repositorios.h"
 #include "../arquivos/carregamentos.h"
 
