@@ -44,11 +44,12 @@ int obterIndiceDaCota(char* cota) {
 // 0, cotaA é igual a cotaB
 // 1, cotaB é maior que cotaA
 int compararCotas(char* cotaA, char* cotaB) {
+    if (strcmp(cotaA, cotaB) == 0) return 0;
+
     int indexCotaA = obterIndiceDaCota(cotaA);
     int indexCotaB = obterIndiceDaCota(cotaB);
 
     // Faz a verificação dos índices
     if (indexCotaA < indexCotaB) return -1;
-    if (indexCotaA == indexCotaB) return 0;
     else return 1;
 }
