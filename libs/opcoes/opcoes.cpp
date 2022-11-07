@@ -47,6 +47,20 @@ void gerarArquivosDeSaida(
     CursoVetor* cursosV
 ) {
 
+    CursosComCandidatosVetor* cursosComCandidatosV = obterCursosComCandidatos(
+        resultadosV, 
+        candidatosV, 
+        cursosV
+    );
+
+    ordenarCursosPorOrdemAlfabetica(cursosComCandidatosV);
+    ordenarCandidatosPorNotaECota(cursosComCandidatosV);
+
+    // Liberando a memória 
+    for(int cursoIndex = 0; cursoIndex < cursosComCandidatosV->tamanho; cursoIndex++)
+        free(cursosComCandidatosV->cursos[cursoIndex].informacoesCandidatos);
+    free(cursosComCandidatosV->cursos);
+    //
 }
 
 void pesquisarCandidato(CandidatoVetor* candidatosV) {
