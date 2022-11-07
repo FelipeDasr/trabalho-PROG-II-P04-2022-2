@@ -30,7 +30,19 @@ int compararCandidatos(
     CandidatoInformacoes* candidatoA, 
     CandidatoInformacoes* candidatoB
 ) {
-    
+
+    int cotasComparacao = compararCotas(
+        candidatoA->candidato->cota,
+        candidatoB->candidato->cota
+    );
+
+    // Condição para candidatos da mesma cota e com notas iguais
+    if (
+        candidatoA->resultados->notaFinal == candidatoB->resultados->notaFinal 
+        && cotasComparacao == 0
+    ) {
+
+    }
 }
 
 int obterIndiceDaCota(char* cota) {
