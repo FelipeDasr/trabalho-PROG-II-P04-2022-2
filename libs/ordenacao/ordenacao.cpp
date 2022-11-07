@@ -26,6 +26,13 @@ void ordenarCursosPorOrdemAlfabetica(CursosComCandidatosVetor* cursos) {
 
 // Funções utilitárias
 
+int compararCandidatos(
+    CandidatoInformacoes* candidatoA, 
+    CandidatoInformacoes* candidatoB
+) {
+    
+}
+
 int obterIndiceDaCota(char* cota) {
     char cotas[11][4] = { "AC", "L1", "L3", "L4", "L5", "L7", "L8", "L9", "L11", "L13", "L15" };
     for (int index = 0; index < 11; index++) {
