@@ -3,6 +3,7 @@
 #include "opcoes.h"
 #include "../repositorios/repositorios.h"
 #include "../arquivos/carregamentos.h"
+#include "../ordenacao/ordenacao.h"
 
 int pegarOpcaoDoMenu(bool dadosCarregados) {
     while(true) {
