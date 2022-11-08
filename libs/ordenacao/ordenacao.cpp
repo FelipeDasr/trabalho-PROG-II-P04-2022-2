@@ -55,8 +55,78 @@ int compararCandidatos(
         candidatoA->resultados->notaFinal == candidatoB->resultados->notaFinal 
         && cotasComparacao == 0
     ) {
+        int idadeCandidatoA = obterIdadeCandidato(candidatoA->candidato);
+        int idadeCandidatoB = obterIdadeCandidato(candidatoB->candidato);
+    
+        // Ver idade igual ou superior a sessenta anos, dentre estes o de maior idade
+        if (idadeCandidatoA >= 60 || idadeCandidatoB >= 60) {
+            if (idadeCandidatoA != idadeCandidatoB)
+                return compararValoresNumericos(idadeCandidatoA, idadeCandidatoB);
+        };
 
+        int notaRedacaoCandidatoA = candidatoA->resultados->redacao;
+        int notaRedacaoCandidatoB = candidatoB->resultados->redacao;
+
+        // b) Ver maior escore na Prova de Redação
+        if (notaRedacaoCandidatoA != notaRedacaoCandidatoB) {
+            return compararValoresNumericos(
+                notaRedacaoCandidatoA, 
+                notaRedacaoCandidatoB
+            );
+        }
+
+        int notaLinguagensCandidatoA = candidatoA->resultados->linguagens;
+        int notaLinguagensCandidatoB = candidatoB->resultados->linguagens;
+
+        // c) Ver maior escore padronizado na competência 
+        // Linguagem, Códigos e suas Tecnologias na Prova Objetiva
+        if (notaLinguagensCandidatoA != notaLinguagensCandidatoB) {
+            return compararValoresNumericos(
+                notaLinguagensCandidatoA,
+                notaLinguagensCandidatoB
+            );
+        }
+
+        int notaMatematicaCandidatoA = candidatoA->resultados->matematica;
+        int notaMatematicaCandidatoB = candidatoB->resultados->matematica;
+
+        // d) Ver maior escore padronizado na competência
+        // Matemática e suas Tecnologias na Prova Objetiva
+        if (notaMatematicaCandidatoA != notaMatematicaCandidatoB) {
+            return compararValoresNumericos(
+                notaMatematicaCandidatoA,
+                notaMatematicaCandidatoB
+            );
+        }
+
+        int notaHumanasCandidatoA = candidatoA->resultados->humanas;
+        int notaHumanasCandidatoB = candidatoB->resultados->humanas;
+
+        // e) Ver maior escore padronizado na competência
+        // Ciências Humanas e suas Tecnologias na Prova Objetiva
+        if (notaHumanasCandidatoA != notaHumanasCandidatoB) {
+            return compararValoresNumericos(
+                notaHumanasCandidatoA,
+                notaHumanasCandidatoB
+            );
+        }
+
+        int notaCienciasCandidatoA = candidatoA->resultados->ciencias;
+        int notaCienciasCandidatoB = candidatoB->resultados->ciencias;
+
+        // f) Ver maior escore padronizado na competência
+        // Ciências da Natureza e suas Tecnologias na Prova Objetiva
+        if (notaCienciasCandidatoA != notaCienciasCandidatoB) {
+            return compararValoresNumericos(
+                notaCienciasCandidatoA,
+                notaCienciasCandidatoB
+            );
+        }
     }
+}
+
+int obterIdadeCandidato(Candidato* candidato) {
+    return 2022 - candidato->dataNascimento.ano;
 }
 
 int obterIndiceDaCota(char* cota) {
