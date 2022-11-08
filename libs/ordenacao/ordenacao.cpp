@@ -123,6 +123,13 @@ int compararCandidatos(
             );
         }
     }
+
+    // Caso as notas finais não sejam iguais, a comparação
+    // ocorre entra elas
+    return compararValoresNumericos(
+        candidatoA->resultados->notaFinal,
+        candidatoB->resultados->notaFinal
+    );
 }
 
 int obterIdadeCandidato(Candidato* candidato) {
