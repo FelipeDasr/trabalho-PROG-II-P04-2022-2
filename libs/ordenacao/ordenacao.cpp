@@ -13,6 +13,16 @@ int obterIdadeCandidato(Candidato* candidato);
 //
 
 void ordenarCandidatosPorNotaECota(CursosComCandidatosVetor* cursos) {
+    for (int indexCurso = 0; indexCurso < cursos->tamanho; indexCurso++) {
+        // Estrutura que armazena o curso e a lista de candidatos do mesmo
+        CandidatosCursoVetor* candidatos = &cursos->cursos[indexCurso];
+        
+        // Laço que percorrerá candidato a candidato e fara a ordenação
+        for (int indexCandidatoA = 0; indexCandidatoA < candidatos->tamanho; indexCandidatoA++) {
+            for (int indexCandidatoB = 0; indexCandidatoB < candidatos->tamanho; indexCandidatoB++) {
+                // Informações dos candidatos que serão comparados
+                CandidatoInformacoes* candidatoA = &candidatos->informacoesCandidatos[indexCandidatoA];
+                CandidatoInformacoes* candidatoB = &candidatos->informacoesCandidatos[indexCandidatoB];
     
 }
 
