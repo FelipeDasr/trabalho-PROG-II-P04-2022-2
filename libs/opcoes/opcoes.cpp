@@ -45,7 +45,8 @@ void carregarArquivos(
 void gerarArquivosDeSaida(
     ResultadosCandidatoVetor* resultadosV,
     CandidatoVetor* candidatosV,
-    CursoVetor* cursosV
+    CursoVetor* cursosV,
+    VagaVetor* vagasV
 ) {
 
     CursosComCandidatosVetor* cursosComCandidatosV = obterCursosComCandidatos(

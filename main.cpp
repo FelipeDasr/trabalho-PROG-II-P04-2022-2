@@ -18,7 +18,7 @@ int main() {
             dadosCarregados = true;
         }
         else if (opcao == 1) {
-            gerarArquivosDeSaida(&resultadosV, &candidatosV, &cursosV);
+            gerarArquivosDeSaida(&resultadosV, &candidatosV, &cursosV, &vagasV);
         }
         else if (opcao == 2) {
             pesquisarCandidato(&candidatosV);
