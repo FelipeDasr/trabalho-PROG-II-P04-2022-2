@@ -102,37 +102,36 @@ CursosComCandidatosVetor* obterCursosComCandidatos(
             Candidato* candidato = &candidatosV->candidatos[candidatoIndex];
 
             if (candidato->codigoCurso == curso.curso->codigo) {
+                CandidatoInformacoes candidatoInformacoes;
 
-                // Caso o array de informações dos candidatos esteja vazio, será alocado
-                // um espaço de memória para armazenar a primeira corrência
-                if(!curso.tamanho) {
-                    curso.informacoesCandidatos = (CandidatoInformacoes*) calloc(
-                        1,
-                        sizeof(CandidatoInformacoes)
-                    );
-                }
-                // Caso o array já tenha conteúdo, a memória será realocada
-                // para que seja possível armazenar mais uma ocorrência
-                else {
-                    curso.informacoesCandidatos = (CandidatoInformacoes*) realloc(
-                        curso.informacoesCandidatos,
-                        (curso.tamanho + 1) * sizeof(CandidatoInformacoes)
-                    );
-                }
-
-                // Ponteiro para o novo registro de informações do candidato
-                CandidatoInformacoes* candidatoInformacoes = &(
-                    curso.informacoesCandidatos[curso.tamanho]
-                );
-
-                // Atribui ao ponteiro as informações
-                candidatoInformacoes->candidato = candidato;
-                candidatoInformacoes->resultados = obterResultadosPeloCodigoCandidato(
+                // Atribui as informações
+                candidatoInformacoes.candidato = candidato;
+                candidatoInformacoes.resultados = obterResultadosPeloCodigoCandidato(
                     candidato->inscricao,
                     resultadosV
                 );
 
-                curso.tamanho++;
+                if (candidatoInformacoes.resultados != NULL) {
+                    // Caso o array de informações dos candidatos esteja vazio, será alocado
+                    // um espaço de memória para armazenar a primeira corrência
+                    if(!curso.tamanho) {
+                        curso.informacoesCandidatos = (CandidatoInformacoes*) calloc(
+                            1,
+                            sizeof(CandidatoInformacoes)
+                        );
+                    }
+                    // Caso o array já tenha conteúdo, a memória será realocada
+                    // para que seja possível armazenar mais uma ocorrência
+                    else {
+                        curso.informacoesCandidatos = (CandidatoInformacoes*) realloc(
+                            curso.informacoesCandidatos,
+                            (curso.tamanho + 1) * sizeof(CandidatoInformacoes)
+                        );
+                    }
+
+                    curso.informacoesCandidatos[curso.tamanho] = candidatoInformacoes;
+                    curso.tamanho++;
+                }
             }
         }
 
