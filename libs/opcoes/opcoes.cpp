@@ -3,6 +3,7 @@
 #include "opcoes.h"
 #include "../repositorios/repositorios.h"
 #include "../arquivos/carregamentos.h"
+#include "../arquivos/exportacoes.h"
 #include "../ordenacao/ordenacao.h"
 
 int pegarOpcaoDoMenu(bool dadosCarregados) {
@@ -57,6 +58,11 @@ void gerarArquivosDeSaida(
 
     ordenarCursosPorOrdemAlfabetica(cursosComCandidatosV);
     ordenarCandidatosPorNotaECota(cursosComCandidatosV);
+
+    exportarCandidatosAprovados(
+        cursosComCandidatosV,
+        vagasV
+    );
 
     // Liberando a memória 
     for(int cursoIndex = 0; cursoIndex < cursosComCandidatosV->tamanho; cursoIndex++)
