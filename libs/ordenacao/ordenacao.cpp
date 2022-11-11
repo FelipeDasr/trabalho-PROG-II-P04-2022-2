@@ -24,6 +24,15 @@ void ordenarCandidatosPorNotaECota(CursosComCandidatosVetor* cursos) {
                 CandidatoInformacoes* candidatoA = &candidatos->informacoesCandidatos[indexCandidatoA];
                 CandidatoInformacoes* candidatoB = &candidatos->informacoesCandidatos[indexCandidatoB];
     
+                if (compararCandidatos(candidatoA, candidatoB) > 0) {
+                    CandidatoInformacoes candidatoAux = *candidatoA;
+                    *candidatoA = *candidatoB;
+                    *candidatoB = candidatoAux;
+                }
+            }
+        }
+    }
+    
 }
 
 void ordenarCursosPorOrdemAlfabetica(CursosComCandidatosVetor* cursos) {
