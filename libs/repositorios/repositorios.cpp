@@ -19,6 +19,14 @@ Curso* obterCursoPeloCodigo(int codigo, CursoVetor* cursosV) {
     return NULL;
 }
 
+Vaga* obterVagasPeloCodigoDoCurso(int codigo, VagaVetor* vagasV) {
+    for (int index = 0; index < vagasV->tamanho; index++) {
+        if(vagasV->vagas[index].codigoCurso == codigo) 
+            return &vagasV->vagas[index];
+    }
+    return NULL;
+}
+
 ResultadosCandidato* obterResultadosPeloCodigoCandidato(
     int codigo,
     ResultadosCandidatoVetor* resultadosV
