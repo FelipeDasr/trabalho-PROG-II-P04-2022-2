@@ -12,6 +12,9 @@ int alterarNotaDeTodasAsRedacoes(
     ResultadosCandidatoVetor* resultadosV,
     CandidatoVetor* candidatosV
 );
+
+Vaga* obterVagasPeloCodigoDoCurso(int codigo, VagaVetor* vagasV);
+
 CursosComCandidatosVetor* obterCursosComCandidatos(
     ResultadosCandidatoVetor* resultadosV,
     CandidatoVetor* candidatosV,
