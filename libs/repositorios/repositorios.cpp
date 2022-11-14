@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int obterNumeroDeVagasPorCota(char cota[], Vaga vaga);
+
 Candidato* obterCandidatoPelaInscricao(int inscricao, CandidatoVetor* candidatosV) {
     for(int index = 0; index < candidatosV->tamanho; index++) {
         if(candidatosV->candidatos[index].inscricao == inscricao)
@@ -148,4 +150,20 @@ CursosComCandidatosVetor* obterCursosComCandidatos(
     }
 
     return cursosComCandidatosV;
+}
+
+// Utilitários
+
+int obterNumeroDeVagasPorCota(char cota[], Vaga* vaga) {
+    if (strcmp(cota, "AC")) return vaga->AC;
+    if (strcmp(cota, "L1")) return vaga->L1;
+    if (strcmp(cota, "L3")) return vaga->L3;
+    if (strcmp(cota, "L4")) return vaga->L4;
+    if (strcmp(cota, "L5")) return vaga->L5;
+    if (strcmp(cota, "L7")) return vaga->L7;
+    if (strcmp(cota, "L8")) return vaga->L8;
+    if (strcmp(cota, "L9")) return vaga->L9;
+    if (strcmp(cota, "L11")) return vaga->L11;
+    if (strcmp(cota, "L13")) return vaga->L13;
+    if (strcmp(cota, "L15")) return vaga->L15;
 }
