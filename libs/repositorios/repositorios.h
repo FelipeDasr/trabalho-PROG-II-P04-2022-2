@@ -25,3 +25,8 @@ void separarCandidatosAprovados(
     CursosComCandidatosVetor* cursosComCandidatosV,
     VagaVetor* vagasV
 );
+
+void separarCandidatosReprovados(
+    CursosComCandidatosVetor* cursosComCandidatosV,
+    VagaVetor* vagasV
+);

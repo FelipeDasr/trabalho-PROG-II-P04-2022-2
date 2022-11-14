@@ -193,6 +193,13 @@ void separarCandidatosAprovados(
     }
 }
 
+void separarCandidatosReprovados(
+    CursosComCandidatosVetor* cursosComCandidatosV,
+    VagaVetor* vagasV
+) {
+    
+}
+
 // Utilitários
 
 int obterNumeroDeVagasPorCota(char cota[], Vaga* vaga) {
