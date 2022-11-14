@@ -165,5 +165,5 @@ int obterNumeroDeVagasPorCota(char cota[], Vaga* vaga) {
     if (strcmp(cota, "L9")) return vaga->L9;
     if (strcmp(cota, "L11")) return vaga->L11;
     if (strcmp(cota, "L13")) return vaga->L13;
-    if (strcmp(cota, "L15")) return vaga->L15;
+    else return vaga->L15;
 }
