@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int obterNumeroDeVagasPorCota(char cota[], Vaga vaga);
+int obterNumeroDeVagasPorCota(char cota[], Vaga* vaga);
 
 Candidato* obterCandidatoPelaInscricao(int inscricao, CandidatoVetor* candidatosV) {
     for(int index = 0; index < candidatosV->tamanho; index++) {
