@@ -21,7 +21,7 @@ CursosComCandidatosVetor* obterCursosComCandidatos(
     CursoVetor* cursosV
 );
 
-CursosComCandidatosVetor* separarCandidatosAprovados(
+void separarCandidatosAprovados(
     CursosComCandidatosVetor* cursosComCandidatosV,
     VagaVetor* vagasV
 );
