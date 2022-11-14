@@ -1,3 +1,4 @@
+#include "carregamentos.h"
 #include "exportacoes.h"
 #include "string.h"
 
@@ -5,7 +6,12 @@ void exportarCandidatosAprovados(
     CursosComCandidatosVetor* cursos, 
     VagaVetor* vagas
 ) {
-    FILE* arquivo = fopen("ex-saida/candidatos-ordenados.txt", "w+");
+    FILE* arquivo = fopen("saida/candidatos-classificados.txt", "w+");
+    if (!arquivoFoiAberto(arquivo)) {
+        printf("Possivelmente a pasta /saida não existe na raiz da pasta\n\n");
+        return;
+    }
+
     fprintf(arquivo, "/*LISTA GERAL CLASSIFICADO POR NOTA*/");
 
     for (int indexCurso = 0; indexCurso < cursos->tamanho; indexCurso++) {
@@ -60,7 +66,12 @@ void exportarCandidatosReprovados(
     CursosComCandidatosVetor* cursos, 
     VagaVetor* vagas
 ) {
-    FILE* arquivo = fopen("ex-saida/candidatos-desclassificados.txt", "w+");
+    FILE* arquivo = fopen("saida/candidatos-desclassificados.txt", "w+");
+    if (!arquivoFoiAberto(arquivo)) {
+        printf("Possivelmente a pasta /saida não existe na raiz da pasta\n\n");
+        return;
+    }
+
     fprintf(arquivo, "/*LISTA GERAL DE CANDIDATOS NÃO CLASSIFICADOS*/");
 
     for (int indexCurso = 0; indexCurso < cursos->tamanho; indexCurso++) {
