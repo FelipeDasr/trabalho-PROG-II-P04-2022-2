@@ -21,7 +21,7 @@ CursosComCandidatosVetor* obterCursosComCandidatos(
     CursoVetor* cursosV
 );
 
-CursosComCandidatosVetor* obterCandidatosAprovados(
+CursosComCandidatosVetor* separarCandidatosAprovados(
     CursosComCandidatosVetor* cursosComCandidatosV,
     VagaVetor* vagasV
 );
