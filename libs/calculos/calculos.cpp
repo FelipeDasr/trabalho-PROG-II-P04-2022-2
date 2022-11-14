@@ -40,13 +40,13 @@ float calcularEscorePadronizado(
 }
 
 void calcularNotaFinal(ResultadosCandidato* resultados, Curso curso) {
-    int dividendo = (resultados->redacao * curso.pesoRed) +
+    float dividendo = (resultados->redacao * curso.pesoRed) +
         (resultados->linguagens * curso.pesoLin) +
         (resultados->matematica * curso.pesoMat) +
         (resultados->ciencias * curso.pesoNat) +
         (resultados->humanas * curso.pesoHum);
     
-    int divisor = curso.pesoRed + 
+    float divisor = curso.pesoRed + 
         curso.pesoLin +
         curso.pesoMat +
         curso.pesoNat +
