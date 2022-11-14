@@ -24,8 +24,11 @@ int pegarOpcaoDoMenu(bool dadosCarregados) {
         // Lê a opção desejada
         scanf("%d", &opcao);
 
-        if (opcao < 0 || opcao > 5 || (opcao == 0 && dadosCarregados))
-            printf("\nOpcao invalida!\n");
+        if (opcao != 0 && !dadosCarregados) {
+            printf("\nOs dados ainda não foram carregados!\n\n");
+        }
+        else if (opcao < 0 || opcao > 5 || (opcao == 0 && dadosCarregados))
+            printf("\nOpcao invalida!\n\n");
         else
             return opcao;
     }
