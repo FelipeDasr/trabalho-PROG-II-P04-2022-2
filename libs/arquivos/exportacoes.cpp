@@ -60,5 +60,31 @@ void exportarCandidatosReprovados(
     CursosComCandidatosVetor* cursos, 
     VagaVetor* vagas
 ) {
+    FILE* arquivo = fopen("ex-saida/candidatos-desclassificados.txt", "w+");
+    fprintf(arquivo, "/*LISTA GERAL DE CANDIDATOS NÃO CLASSIFICADOS*/");
 
+    for (int indexCurso = 0; indexCurso < cursos->tamanho; indexCurso++) {
+
+        fprintf(arquivo, "\n\n%d %s\n", 
+            cursos->cursos[indexCurso].curso->codigo,
+            cursos->cursos[indexCurso].curso->nome
+        );
+        fprintf(arquivo, "INSC	NOME");
+
+        for (int indexCandidato = 0; indexCandidato < cursos->cursos[indexCurso].tamanho; indexCandidato++) {
+            CandidatoInformacoes* candidatoInformacoes = &cursos->cursos[indexCurso].informacoesCandidatos[indexCandidato];
+            
+            if (candidatoInformacoes->candidato != NULL) {
+                Candidato* candidato = candidatoInformacoes->candidato;
+                ResultadosCandidato* resultados = candidatoInformacoes->resultados;
+
+                fprintf(arquivo, "\n%d\t%s",
+                    candidato->inscricao,
+                    candidato->nome
+                );
+            }
+        }
+    }
+
+    fclose(arquivo);
 }
