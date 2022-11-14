@@ -24,7 +24,7 @@ int main() {
             pesquisarCandidato(&candidatosV);
         }
         else if (opcao == 3) {
-            gerarArquivoDosCandidatosReprovados();
+            gerarArquivoDosCandidatosReprovados(&resultadosV, &candidatosV, &cursosV, &vagasV);
         }
         else if (opcao == 4) {
             alterarNotaDaRedacao(&cursosV, &resultadosV, &candidatosV);

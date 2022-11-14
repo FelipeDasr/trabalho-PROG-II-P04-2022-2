@@ -94,7 +94,12 @@ void pesquisarCandidato(CandidatoVetor* candidatosV) {
     }
 }
 
-void gerarArquivoDosCandidatosReprovados() {
+void gerarArquivoDosCandidatosReprovados(    
+    ResultadosCandidatoVetor* resultadosV,
+    CandidatoVetor* candidatosV,
+    CursoVetor* cursosV,
+    VagaVetor* vagasV
+) {
 
 }
 
