@@ -23,6 +23,5 @@
 
 ### Alunos
 
-- Felipe dos Anjos Santana  Rodrigues - **202219070589**
-- Layson Henrique da Silva - ****
-
+- Felipe dos Anjos Santana Rodrigues - **202219070589**
+- Layson Henrique da Silva - **202219070457**
