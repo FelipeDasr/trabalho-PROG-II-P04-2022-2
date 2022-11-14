@@ -57,6 +57,34 @@ void ordenarCursosPorOrdemAlfabetica(CursosComCandidatosVetor* cursos) {
     }
 }
 
+void ordenarCandidatosPorNome(CursosComCandidatosVetor* cursos) {
+    for (int indexCurso = 0; indexCurso < cursos->tamanho; indexCurso++) {
+        // Estrutura que armazena o curso e a lista de candidatos do mesmo
+        CandidatosCursoVetor* candidatos = &cursos->cursos[indexCurso];
+        
+        // Laço que percorrerá candidato a candidato e fara a ordenação
+        for (int indexCandidatoA = 0; indexCandidatoA < candidatos->tamanho; indexCandidatoA++) {
+            // Checa se a posição não está vazia
+            if (candidatos->informacoesCandidatos[indexCandidatoA].candidato != NULL) {
+                for (int indexCandidatoB = 0; indexCandidatoB < candidatos->tamanho; indexCandidatoB++) {
+                    // Informações dos candidatos que serão comparados
+                    CandidatoInformacoes* candidatoA = &candidatos->informacoesCandidatos[indexCandidatoA];
+                    CandidatoInformacoes* candidatoB = &candidatos->informacoesCandidatos[indexCandidatoB];
+                    
+                    // Checa se a posição que será comparada não está vazia
+                    if (candidatoB->candidato != NULL) {
+                        if (strcmp(candidatoA->candidato->nome, candidatoB->candidato->nome) < 0) {
+                            CandidatoInformacoes candidatoAux = *candidatoA;
+                            *candidatoA = *candidatoB;
+                            *candidatoB = candidatoAux;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 // Funções utilitárias
 
 int compararCandidatos(
