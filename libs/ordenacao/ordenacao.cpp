@@ -65,15 +65,14 @@ int compararCandidatos(
 ) {
 
     int cotasComparacao = compararCotas(
-        candidatoA->candidato->cota,
-        candidatoB->candidato->cota
+        candidatoB->candidato->cota,
+        candidatoA->candidato->cota
     );
 
+    if (cotasComparacao != 0) return cotasComparacao;
+
     // Condição para candidatos da mesma cota e com notas iguais
-    if (
-        candidatoA->resultados->notaFinal == candidatoB->resultados->notaFinal 
-        && cotasComparacao == 0
-    ) {
+    if (candidatoA->resultados->notaFinal == candidatoB->resultados->notaFinal) {
         int idadeCandidatoA = obterIdadeCandidato(candidatoA->candidato);
         int idadeCandidatoB = obterIdadeCandidato(candidatoB->candidato);
     
