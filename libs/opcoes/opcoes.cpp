@@ -58,6 +58,7 @@ void gerarArquivosDeSaida(
 
     ordenarCursosPorOrdemAlfabetica(cursosComCandidatosV);
     ordenarCandidatosPorNotaECota(cursosComCandidatosV);
+    separarCandidatosAprovados(cursosComCandidatosV, vagasV);
 
     exportarCandidatosAprovados(
         cursosComCandidatosV,

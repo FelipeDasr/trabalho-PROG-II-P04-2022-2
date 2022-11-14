@@ -1,6 +1,7 @@
 #include "../repositorios/repositorios.h"
 #include "../calculos/calculos.h"
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 
 int obterNumeroDeVagasPorCota(char cota[], Vaga* vaga);
@@ -150,6 +151,46 @@ CursosComCandidatosVetor* obterCursosComCandidatos(
     }
 
     return cursosComCandidatosV;
+}
+
+void separarCandidatosAprovados(
+    CursosComCandidatosVetor* cursosComCandidatosV,
+    VagaVetor* vagasV
+) {
+
+    // Percorre todos os cursos
+    for (int indexCurso = 0; indexCurso < cursosComCandidatosV->tamanho; indexCurso++) {
+        CandidatosCursoVetor* curso = &cursosComCandidatosV->cursos[indexCurso];
+        Vaga* vagasCurso;
+        char cotaAtual[4];
+        int numeroVagas;
+
+        // Pegando a primeira ocorrência de cota e vagas 
+        vagasCurso = obterVagasPeloCodigoDoCurso(curso->curso->codigo, vagasV);
+        numeroVagas = obterNumeroDeVagasPorCota(cotaAtual, vagasCurso);
+        strcpy(cotaAtual, curso->informacoesCandidatos[0].candidato->cota);
+        
+        // Percorre os candidatos do curso
+        for (int indexCandidato = 0; indexCandidato < curso->tamanho; indexCandidato++) {
+            CandidatoInformacoes* infoCandidato = (
+                &curso->informacoesCandidatos[indexCandidato]
+            );
+
+            // Checando se a cota mudou
+            if (strcmp(infoCandidato->candidato->cota, cotaAtual) != 0) {
+                strcpy(cotaAtual, infoCandidato->candidato->cota);
+                numeroVagas = obterNumeroDeVagasPorCota(cotaAtual, vagasCurso);
+            }
+            
+            // Checando se as vagas já foram preencidas
+            if (!numeroVagas) {
+                curso->informacoesCandidatos[indexCandidato].candidato = NULL;
+                curso->informacoesCandidatos[indexCandidato].resultados = NULL;
+            }
+            // Caso ainda tenhha vaga disponível
+            else numeroVagas--;
+        }
+    }
 }
 
 // Utilitários
