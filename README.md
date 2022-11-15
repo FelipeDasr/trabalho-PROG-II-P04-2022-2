@@ -25,3 +25,15 @@
 
 - Felipe dos Anjos Santana Rodrigues - **202219070589**
 - Layson Henrique da Silva - **202219070457**
+
+<br>
+
+### Comando para compilar e executar
+
+- **Linux / Mac**
+      
+      g++ *.cpp libs/*/*.cpp -o main && clear && ./main
+
+- **Windows**
+
+      g++ *.cpp libs/*/*.cpp -o main; cls; ./main
