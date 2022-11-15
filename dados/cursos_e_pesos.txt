@@ -1,114 +1,113 @@
-113										
+112										
 547	Administracao – bacharel						2	1	2	1	1		
-552	ciencia biologicas – licenciatura				2	1	1	1	1				
-548	ciencias contabeis – bacharel					3	4	2	2	1			
+552	Ciencia biologicas – licenciatura				2	1	1	1	1				
+548	Ciencias contabeis – bacharel					3	4	2	2	1			
 541	Direito – bacharel								2	1	1	1	1
-569	educacao fisica – licenciatura					2	1	1	1	1			
+569	Educacao fisica – licenciatura					2	1	1	1	1			
 549	Geografia – licenciatura						2	2	2	3	3		
 550	Historia – licenciatura							3	1	2	2	1	
 553	Matematica – licenciatura						1	1	1	1	1		
 568	Pedagogia – licenciatura						2	1	2	2	1		
 562	Psicologia – bacharel							2	1	1	2	1	
-571	sistema de informacao – bacharel				3	3	2	1	1				
+571	Sistema de informacao – bacharel				3	3	2	1	1				
 450	Administracao – bacharel						2	1	1	1	1		
-446	ciencia biologicas – licenciatura				3	2	2	2	3				
+446	Ciencia biologicas – licenciatura				3	2	2	2	3				
 443	Geografia – licenciatura						2	1	1	2	1		
 439	Historia – licenciatura							2	1	1	2	1	
-413	letras portugues e espanhol – licenciatura		2	1	1	1	1						
-432	letras portugues e ingles - licenciatura		2	1	1	1	1						
-465	intercultural indigna – licenciatura			2	1	1	1	1					
+413	Letras portugues e espanhol – licenciatura		2	1	1	1	1						
+432	Letras portugues e ingles - licenciatura		2	1	1	1	1						
+465	Intercultural indigna – licenciatura			2	1	1	1	1					
 447	Matematica – licenciatura						2	2	1	1	1		
 457	Pedagogia – licenciatura						2	1	2	2	1		
 901	Administracao – bacharel						2	1	1	1	1		
 904	Matematica – licenciatura						2	2	1	1	1		
 903	Psicologia – bacharel							1	1	1	2	1	
-1304	Administracao – bacharel					2	1	1	1	1			
-1303	Agronomia – bacharel						2	1	1	1	1		
-1302	engenharia florestal – bacharel				2	2	1	1	2				
+1304 Administracao – bacharel					2	1	1	1	1			
+1303 Agronomia – bacharel						2	1	1	1	1		
+1302 Engenharia florestal – bacharel				2	2	1	1	2				
 806	Direito – bacharel								4	2	2	2	1
 804	Enfermagem – bacharel							2	1	1	1	1	
-805	letras - portugues - licenciatura				2	1	1	1	1				
-803	sistema de informacao – bacharel				2	3	1	1	2				
-1405	Administracao – bacharel					2	1	1	1	1			
-1407	ciencias contabeis – bacharel				2	1	1	1	1				
-1408	engenharia de producao – bacharel			2	1	1	1	1					
-1404	Historia – licenciatura						3	1	2	3	1		
-1703	Administracao – bacharel					1	1	1	1	1			
-1701	ciencias sociais – licenciatura				2	1	2	2	1				
-1702	Pedagogia – licenciatura					2	1	2	2	1			
-1704	arquitetura e urbanismo – bacharel			2	1	1	1	1					
-1801	Matematica – licenciatura					1	1	1	1	1			
-1829	Pedagogia – licenciatura					3	1	3	3	1			
-1802	sistema de informacao – bacharel			1	1	1	1	1					
-793	Administracao – bacharel						3	2	2	2	1		
-788	ciencia biologicas – licenciatura				2	1	1	1	2				
-795	ciencias contabeis – bacharel					3	3	1	2	1			
+805	Letras - portugues - licenciatura				2	1	1	1	1				
+803	Sistema de informacao – bacharel				2	3	1	1	2				
+1405 Administracao – bacharel					2	1	1	1	1			
+1407 Ciencias contabeis – bacharel				2	1	1	1	1				
+1408 Engenharia de producao – bacharel			2	1	1	1	1					
+1404 Historia – licenciatura						3	1	2	3	1		
+1703 Administracao – bacharel					1	1	1	1	1			
+1701 Ciencias sociais – licenciatura				2	1	2	2	1							
+1704 Arquitetura e urbanismo – bacharel			2	1	1	1	1					
+1801 Matematica – licenciatura					1	1	1	1	1			
+1829 Pedagogia – licenciatura					3	1	3	3	1			
+1802 Sistema de informacao – bacharel			1	1	1	1	1					
+793 Administracao – bacharel						3	2	2	2	1		
+788 Ciencia biologicas – licenciatura				2	1	1	1	2				
+795 Ciencias contabeis – bacharel					3	3	1	2	1			
 781	Direito – bacharel					3	1	3	3	1			
 739	Direito – bacharel					2	1	1	1	1			
 798	Enfermagem – bacharel					2	1	1	1	2			
-799	engenharia de producao – bacharel		2	1	1	1	1						
+799	Engenharia de producao – bacharel		2	1	1	1	1						
 701	Geografia – bacharel					2	1	1	1	1			
 796	Geografia – licenciatura				2	1	1	2	2				
 783	Historia – licenciatura					3	1	2	2	1			
 722	Letras – portugues e espanhol - licenciatura				2	1	1	1	1				
-745	letras - portugues – ingles - licenciatura					2	1	1	1	1			
-740	letras – portugues e literatura – licenciatura				2	1	1	1	1				
+745	Letras - portugues – ingles - licenciatura					2	1	1	1	1			
+740	Letras – portugues e literatura – licenciatura				2	1	1	1	1				
 789	Matematica – licenciatura					2	1	1	1	1			
-744	medicina bacharel							2	1	1	1	1	
+744	Medicina bacharel							2	1	1	1	1	
 728	Pedagogia – licenciatura					3	1	2	2	1			
-743	sistema de informacao – bacharel			2	3	2	1	1					
-2501	Administracao – bacharel				3	3	1	2	1				
-2502	Administracao – bacharel				3	3	1	2	1				
-2504	ciencias contabeis – bacharel			3	4	2	2	1					
-2506	ciencias economicas – bacharel			2	3	1	2	1					
-2505	processos gerenciais – tecnologico		4	4	3	3	2						
-2503	Turismo – bacharel						3	1	2	2	1		
-2904	artes visuais – bacharel				3	1	3	3	1				
-2901	artes visuais – licenciatura			3	1	2	2	1					
-2911	Audiovisual – bacharel					2	1	1	1	1			
-2907	Jornalismo – bacharel					2	1	2	2	1			
-2912	Letras – portugues e espanhol - licenciatura	3	1	2	1	1							
-2913	Letras – portugues e ingles - licenciatura		3	1	2	1	1						
-2906	Musica – licenciatura					2	1	1	1	1			
-2604	engenharia de alimentos					2	1	1	1	1			
-2601	Farmacia – bacharel						2	2	1	1	2		
-2602	Farmacia – bacharel						2	2	1	1	2		
-3005	ciencias sociais – bacharel				1	1	1	1	1				
-3004	Filosofia – licenciatura				2	1	1	2	1				
-3002	Historia – licenciatura					2	1	1	2	1			
-3003	Psicologia – bacharel					2	1	1	1	1			
-1904	ciencia da computacao – bacharel				2	4	2	1	2				
-1905	engenharia de computacao – bacharel				2	3	1	1	2				
-1906	engenharia de software – bacharel				2	3	2	1	1				
-1907	sistema de informacao – bacharel				2	3	2	1	1				
-2001	Direito – bacharel								4	2	2	2	1
-2002	Direito – bacharel								4	2	2	2	1
-3107	educacao ficica – bacharel						1	1	2	2	1		
-3102	educacao ficica- licenciatura					1	1	2	2	1			
-3108	educacao do campo – licenciatura				2	1	1	1	1				
-3193	educacao e processos do trabalho – tecnologico	2	1	1	1	1							
-3101	Pedagogia – licenciatura				4	3	3	3	3				
-3103	Pedagogia – licenciatura				2	1	1	1	1				
-2101	arquitetura e urbanismo – bacharel		2	2	2	2	1						
-2104	engenharia ambiental – bacharel			2	4	1	1	3					
-2111	engenharia civil – bacharel				2	1	1	1	1				
-2102	engenharia civil – bacharel				2	4	1	1	3				
-2106	enganharia de producao – bacharel		2	3	1	1	2						
-2103	engenharia eletrica – bacharel			2	4	2	1	3					
-2109	Geografia – bacharel					2	1	1	2	2			
-1002	medicina bacharel						3	1	2	2	3		
-1201	medicina veterinaria – bacharel			3	1	1	1	3					
-1203	Zootecnia – bacharel					3	1	1	1	3			
-1102	Odontologia – bacharel					3	1	3	2	3			
-2701	ciencia biologicas – bacharel			2	1	1	1	2					
-2703	ciencia biologicas – licenciatura		2	1	1	1	2						
-2402	Fisica – bacharel						3	3	1	1	3		
-2403	Fisica – licenciatura				    3	3	2	1	4				
-2801	Enfermagem – bacharel					2	1	1	1	2			
-2802	Fisioterapia – bacharel					2	1	1	2	2			
-2202	Matematica – licenciatura				1	1	1	1	1				
-2203	Matematica – bacharel					2	1	1	1	1			
-2304	engenharia quimica – bacharel			2	1	1	1	1					
-2302	Quimica – bacharel						2	2	1	1	3		
-2301	Quimica – licenciatura					2	2	1	1	2
-2406    Engenharia fisica - bacharel            2   1   1   1   1
+743	Sistema de informacao – bacharel			2	3	2	1	1					
+2501 Administracao – bacharel				3	3	1	2	1				
+2502 Administracao – bacharel				3	3	1	2	1				
+2504 Ciencias contabeis – bacharel			3	4	2	2	1					
+2506 Ciencias economicas – bacharel			2	3	1	2	1					
+2505 Processos gerenciais – tecnologico		4	4	3	3	2						
+2503 Turismo – bacharel						3	1	2	2	1		
+2904 Artes visuais – bacharel				3	1	3	3	1				
+2901 Artes visuais – licenciatura			3	1	2	2	1					
+2911 Audiovisual – bacharel					2	1	1	1	1			
+2907 Jornalismo – bacharel					2	1	2	2	1			
+2912 Letras – portugues e espanhol - licenciatura	3	1	2	1	1							
+2913 Letras – portugues e ingles - licenciatura		3	1	2	1	1						
+2906 Musica – licenciatura					2	1	1	1	1			
+2604 Engenharia de alimentos					2	1	1	1	1			
+2601 Farmacia – bacharel						2	2	1	1	2		
+2602 Farmacia – bacharel						2	2	1	1	2		
+3005 Ciencias sociais – bacharel				1	1	1	1	1				
+3004 Filosofia – licenciatura				2	1	1	2	1				
+3002 Historia – licenciatura					2	1	1	2	1			
+3003 Psicologia – bacharel					2	1	1	1	1			
+1904 Ciencia da computacao – bacharel				2	4	2	1	2				
+1905 Engenharia de computacao – bacharel				2	3	1	1	2				
+1906 Engenharia de software – bacharel				2	3	2	1	1				
+1907 Sistema de informacao – bacharel				2	3	2	1	1				
+2001 Direito – bacharel								4	2	2	2	1
+2002 Direito – bacharel								4	2	2	2	1
+3107 Educacao ficica – bacharel						1	1	2	2	1		
+3102 Educacao ficica- licenciatura					1	1	2	2	1			
+3108 Educacao do campo – licenciatura				2	1	1	1	1				
+3193 Educacao e processos do trabalho – tecnologico	2	1	1	1	1							
+3101 Pedagogia – licenciatura				4	3	3	3	3				
+3103 Pedagogia – licenciatura				2	1	1	1	1				
+2101 Arquitetura e urbanismo – bacharel		2	2	2	2	1						
+2104 Engenharia ambiental – bacharel			2	4	1	1	3					
+2111 Engenharia civil – bacharel				2	1	1	1	1				
+2102 Engenharia civil – bacharel				2	4	1	1	3				
+2106 Enganharia de producao – bacharel		2	3	1	1	2						
+2103 Engenharia eletrica – bacharel			2	4	2	1	3					
+2109 Geografia – bacharel					2	1	1	2	2			
+1002 Medicina bacharel						3	1	2	2	3		
+1201 Medicina veterinaria – bacharel			3	1	1	1	3					
+1203 Zootecnia – bacharel					3	1	1	1	3			
+1102 Odontologia – bacharel					3	1	3	2	3			
+2701 Ciencia biologicas – bacharel			2	1	1	1	2					
+2703 Ciencia biologicas – licenciatura		2	1	1	1	2						
+2402 Fisica – bacharel						3	3	1	1	3		
+2403 Fisica – licenciatura				    3	3	2	1	4				
+2801 Enfermagem – bacharel					2	1	1	1	2			
+2802 Fisioterapia – bacharel					2	1	1	2	2			
+2202 Matematica – licenciatura				1	1	1	1	1				
+2203 Matematica – bacharel					2	1	1	1	1			
+2304 Engenharia quimica – bacharel			2	1	1	1	1					
+2302 Quimica – bacharel						2	2	1	1	3		
+2301 Quimica – licenciatura					2	2	1	1	2
+2406 Engenharia fisica - bacharel            2   1   1   1   1
