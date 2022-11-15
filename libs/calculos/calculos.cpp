@@ -80,6 +80,9 @@ void calcularResultadosDosCandidatos(
             candidatosV
         );
 
+        // Verifica se o candidato existe
+        if (candidato == NULL) continue;
+
         // Para um ganho de performance, verificamos se o curso do candidato anterior
         // é o mesmo do candidato atual, caso for o mesmo curso, não precisaremos
         // buscar o curso novamente.
